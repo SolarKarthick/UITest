@@ -17,7 +17,7 @@ export class Apiservice {
   ) {
     this.baseUrl = 'http://192.168.31.108:3000/api';
   } else {
-    this.baseUrl = 'https://sep202609api.onrender.com/api';
+    this.baseUrl = 'https://apitest-1-bfmz.onrender.com/api';
   }
 }
 
