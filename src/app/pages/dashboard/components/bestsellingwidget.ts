@@ -26,7 +26,7 @@ import { MenuModule } from 'primeng/menu';
             </li>
             <li class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
                 <div>
-                    <span class="text-surface-900 dark:text-surface-0 font-medium mr-2 mb-1 md:mb-0">Deposit</span>
+                    <span class="text-surface-900 dark:text-surface-0 font-medium mr-2 mb-1 md:mb-0">Pay-in</span>
                     <div class="mt-1 text-muted-color">Easily add funds to your account in a secure way.</div>
                 </div>
                 <div class="mt-2 md:mt-0 ml-0 md:ml-20 flex items-center">
@@ -50,7 +50,7 @@ import { MenuModule } from 'primeng/menu';
             </li>
             <li class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
                 <div>
-                    <span class="text-surface-900 dark:text-surface-0 font-medium mr-2 mb-1 md:mb-0">Withdraw</span>
+                    <span class="text-surface-900 dark:text-surface-0 font-medium mr-2 mb-1 md:mb-0">Pay-out</span>
                     <div class="mt-1 text-muted-color">Safely transfer your money from your account to your bank or wallet.</div>
                 </div>
                 <div class="mt-2 md:mt-0 ml-0 md:ml-20 flex items-center">

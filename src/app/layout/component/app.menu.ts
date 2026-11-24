@@ -1,85 +1,60 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MenuItem } from 'primeng/api';
 import { AppMenuitem } from './app.menuitem';
-import { ButtonModule } from 'primeng/button';
 import { LayoutService } from '../service/layout.service';
 import { AvatarModule } from 'primeng/avatar';
 import { TranslatePipe } from '@ngx-translate/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Authservice } from '../../pages/auth/service/authservice';
+import { menuSvg } from './app.menu-svgs';
 
 @Component({
     selector: 'app-menu',
     standalone: true,
-    imports: [CommonModule, AppMenuitem, RouterModule, ButtonModule, AvatarModule,TranslatePipe],
+    imports: [CommonModule, AppMenuitem, RouterModule, AvatarModule, TranslatePipe],
     templateUrl: './app.menu.html',
+    styleUrl: './app.menu.scss'
 })
 export class AppMenu {
-    model: MenuItem[] = [];
+    model: any = [];
+    userName: any = '';
+    userEmail: any = '';
+    userInitial: any = 'U';
+    closeSvg: any;
 
-    userName = '';
-    userEmail = '';
-    userInitial = 'U';
-    constructor(private layoutService: LayoutService,private authService: Authservice) { }
+    constructor(
+        private layoutService: LayoutService,
+        private authService: Authservice,
+        private sanitizer: DomSanitizer
+    ) {
+        this.closeSvg = this.sanitizer.bypassSecurityTrustHtml(menuSvg('close'));
+    }
 
     ngOnInit() {
         this.initMenu();
         this.loadUser();
     }
+
     initMenu() {
         this.model = [
             {
-                label: 'Home',
-                items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/app/dashboard'] }]
-            },
-            {
-                label: 'Trading',
+                label: 'Overview',
                 items: [
-                    { label: 'Deposit', icon: 'pi pi-fw pi-wallet', routerLink: ['/app/page/deposit'] },
-                    { label: 'Withdraw', icon: 'pi pi-fw pi-arrow-down', routerLink: ['/app/page/withdraw'] },
-                    { label: 'Spot Trade', icon: 'pi pi-fw pi-bitcoin', routerLink: ['/app/page/spot-trade'] },
-                    { label: 'Forex Trade', icon: 'pi pi-fw pi-dollar', routerLink: ['/app/page/forex-trade'] },
-                    { label: 'Events', icon: 'pi pi-fw pi-calendar', routerLink: ['/app/page/upcoming-events'] },
-                    { label: 'Loan', icon: 'pi pi-fw pi-money-bill', routerLink: ['/app/page/loan'] },
-                    { label: 'Support', icon: 'pi pi-fw pi-check-square', routerLink: ['/app/page/support'] }
+                    { label: 'Dashboard', svg: 'home', routerLink: ['/app/dashboard'] },
+                    { label: 'Earning Cap', svg: 'chart-bar', routerLink: ['/app/detail/cap'] },
+                    { label: 'Earnings & Rewards', svg: 'gift', routerLink: ['/app/detail/earnings'] },
+                    { label: 'Referral Network', svg: 'user-plus', routerLink: ['/app/detail/referrals'] },
+                    { label: 'Transaction History', svg: 'wallet', routerLink: ['/app/detail/transactions'] }
                 ]
             },
             {
-                label: 'AI Trading',
-                icon: 'pi pi-fw pi-briefcase',
-                routerLink: ['/pages'],
+                label: 'Account',
                 items: [
-                    {
-                        label: 'Start AI Trading',      // Sub-menu label
-                        icon: 'pi pi-fw pi-play',     // Icon to indicate starting action
-                        items: [
-                            {
-                                label: 'Trade Here',       // Final action
-                                icon: 'pi pi-fw pi-chart-line',
-                                routerLink: ['/app/page/ai-trading']
-                            }
-
-                        ]
-                    }
-                ]
-            },
-            {
-                label: 'MultiAsset Trade',
-                icon: 'pi pi-fw pi-globe', // Good for multi-market assets like oil, metals, commodities
-                routerLink: ['/pages'],
-                items: [
-                    {
-                        label: 'Start Commodity Trading',
-                        icon: 'pi pi-fw pi-globe',
-                        items: [
-                            {
-                                label: 'Commodity Trading',
-                                icon: 'pi pi-fw pi-chart-line',
-                                routerLink: ['/app/page/commodity-trading']
-                            }
-                        ]
-                    }
+                    { label: 'Pay-in', svg: 'pay-in', routerLink: ['/app/detail/pay-in'] },
+                    { label: 'Pay-out', svg: 'pay-out', routerLink: ['/app/detail/pay-out'] },
+                    { label: 'Returns', svg: 'chart', routerLink: ['/app/detail/returns'] },
+                    { label: 'Referral Earnings', svg: 'referral', routerLink: ['/app/detail/referral-earnings'] },
                 ]
             }
         ];
@@ -88,14 +63,14 @@ export class AppMenu {
             this.model.push({
                 label: 'Admin',
                 items: [
-                    { label: 'User List', icon: 'pi pi-fw pi-users', routerLink: ['/app/admin/users'] },
-                    { label: 'Create Deposit', icon: 'pi pi-fw pi-wallet', routerLink: ['/app/admin/create-deposit'] },
-                    { label: 'Send Notification', icon: 'pi pi-fw pi-bell', routerLink: ['/app/admin/send-notification'] }
-
+                    { label: 'User List', svg: 'users', routerLink: ['/app/admin/users'] },
+                    { label: 'Create Deposit', svg: 'wallet', routerLink: ['/app/admin/create-deposit'] },
+                    { label: 'Send Notification', svg: 'bell', routerLink: ['/app/admin/send-notification'] }
                 ]
             });
         }
     }
+
     closeMenu() {
         this.layoutService.layoutState.update((prev) => ({
             ...prev,
@@ -104,6 +79,7 @@ export class AppMenu {
             menuHoverActive: false
         }));
     }
+
     loadUser() {
         try {
             const parsed = JSON.parse(localStorage.getItem('user') || '{}');

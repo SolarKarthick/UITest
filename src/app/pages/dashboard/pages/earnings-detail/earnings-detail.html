@@ -1,0 +1,56 @@
+<div class="detail-page">
+  <app-detail-page-header
+    title="Earnings & Rewards"
+    subtitle="Credited income, pending rewards, and how each payout counts toward your cap."
+  />
+
+  <div class="mb-4 grid grid-cols-2 gap-3 lg:grid-cols-4">
+    @for (row of data.earningsBreakdown; track row.label) {
+      <div class="stat-card">
+        <p class="stat-label">{{ row.label }}</p>
+        <p class="stat-value">${{ row.amount | number: '1.2-2' }}</p>
+        <p class="mt-1 m-0 text-xs text-slate-500">{{ row.note }}</p>
+      </div>
+    }
+  </div>
+
+  <div class="mb-5 panel">
+    <div class="flex flex-wrap items-center justify-between gap-2">
+      <div>
+        <h2 class="panel-title mb-1">Toward Maximum Potential</h2>
+        <p class="m-0 text-xs text-slate-500">All sources above are tracked inside the Pay-in × 2 cap</p>
+      </div>
+      <p class="m-0 text-sm font-bold text-slate-800">
+        ${{ data.rewardsReceived | number: '1.0-0' }} / ${{ data.maxPotential | number: '1.0-0' }}
+      </p>
+    </div>
+  </div>
+
+  <div class="panel overflow-hidden p-0">
+    <div class="border-b border-indigo-100 px-4 py-3">
+      <h2 class="panel-title m-0">Referral earnings by user</h2>
+      <p class="mt-1 m-0 text-xs text-slate-500">Income generated from each referred user</p>
+    </div>
+    <p-table [value]="data.referralUsers" styleClass="detail-table" [tableStyle]="{ 'min-width': '100%' }">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>User</th>
+          <th>Status</th>
+          <th>Their Pay-in</th>
+          <th>Your Referral Income</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-user>
+        <tr>
+          <td>
+            <p class="m-0 font-semibold text-slate-800">{{ user.name }}</p>
+            <p class="mt-0.5 m-0 text-xs text-slate-500">{{ user.email }}</p>
+          </td>
+          <td><p-tag [value]="user.status" [severity]="statusSeverity(user.status)" /></td>
+          <td>${{ user.theirPayIn | number: '1.2-2' }}</td>
+          <td class="font-semibold text-indigo-700">${{ user.referralIncome | number: '1.2-2' }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

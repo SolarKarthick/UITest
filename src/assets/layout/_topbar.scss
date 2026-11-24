@@ -8,7 +8,11 @@
     top: 0;
     width: 100%;
     padding: 0 2rem;
-    background-color: var(--surface-card);
+    background: var(--glass-bg-strong);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid var(--glass-border-soft);
+    box-shadow: 0 4px 24px rgba(79, 70, 229, 0.08);
     transition: left var(--layout-section-transition-duration);
     display: flex;
     align-items: center;
@@ -116,18 +120,17 @@
 
         .layout-topbar-menu {
             position: absolute;
-            background-color: var(--surface-overlay);
+            background: var(--glass-bg-strong);
+            backdrop-filter: var(--glass-blur-strong);
+            -webkit-backdrop-filter: var(--glass-blur-strong);
             transform-origin: top;
-            box-shadow:
-                0px 3px 5px rgba(0, 0, 0, 0.02),
-                0px 0px 2px rgba(0, 0, 0, 0.05),
-                0px 1px 4px rgba(0, 0, 0, 0.08);
+            box-shadow: var(--glass-shadow);
             border-radius: var(--content-border-radius);
             padding: 1rem;
             right: 2rem;
             top: 4rem;
             min-width: 15rem;
-            border: 1px solid var(--surface-border);
+            border: 1px solid var(--glass-border-soft);
 
             .layout-topbar-menu-content {
                 gap: 0.5rem;

@@ -1,5 +1,23 @@
 :root {
-    --surface-ground: var(--p-surface-100);
+    --surface-ground: #eef2ff;
     --code-background: var(--p-surface-900);
     --code-color: var(--p-surface-200);
+
+    /* App glass / radiant theme */
+    --app-bg-base: #eef4ff;
+    --app-bg-radiant:
+        radial-gradient(ellipse 80% 55% at 8% -10%, rgba(147, 197, 253, 0.55), transparent 55%),
+        radial-gradient(ellipse 70% 50% at 92% 8%, rgba(196, 181, 253, 0.48), transparent 52%),
+        radial-gradient(ellipse 60% 45% at 50% 100%, rgba(125, 211, 252, 0.35), transparent 55%),
+        linear-gradient(160deg, #eef2ff 0%, #e0f2fe 42%, #ede9fe 78%, #f5f3ff 100%);
+    --glass-bg: rgba(255, 255, 255, 0.55);
+    --glass-bg-strong: rgba(255, 255, 255, 0.72);
+    --glass-border: rgba(255, 255, 255, 0.55);
+    --glass-border-soft: rgba(99, 102, 241, 0.14);
+    --glass-shadow: 0 8px 32px rgba(79, 70, 229, 0.1), 0 1px 0 rgba(255, 255, 255, 0.65) inset;
+    --glass-blur: blur(18px);
+    --glass-blur-strong: blur(24px);
+    --accent-indigo: #6366f1;
+    --accent-sky: #38bdf8;
+    --accent-violet: #8b5cf6;
 }

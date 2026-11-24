@@ -18,17 +18,15 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
   styleUrl: './register.scss'
 })
 export class Register {
-    email: string = '';
-    isLoading: boolean = false;
-    successDialog: boolean = false;
-    errorDialog: boolean = false;
-    errorMessage: string = '';
-    errorSuggestion: string = '';
-
-    // Touched states
-    emailTouched: boolean = false;
-    // Error messages
-    emailError: string = '';
+    email = '';
+    referralCode = '';
+    showReferralCode = false;
+    isLoading = false;
+    errorDialog = false;
+    errorMessage = '';
+    errorSuggestion = '';
+    emailTouched = false;
+    emailError = '';
 
     private emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?){1,2}$/;
 
@@ -65,9 +63,13 @@ export class Register {
             return;
         }
         this.isLoading = true;
-        const payload = {
+        const payload: { email: string; referralCode?: string } = {
             email: this.email.trim()
         };
+        const code = this.referralCode.trim();
+        if (code) {
+            payload.referralCode = code;
+        }
         localStorage.setItem('email-register', this.email.trim());
         this.authService.register(payload).subscribe({
             next: () => {
@@ -83,14 +85,11 @@ export class Register {
         });
     }
 
-    goToLogin() {
-        this.successDialog = false;
-        this.router.navigate(['/auth/login']);
-    }
-
     closeErrorDialog() {
         this.errorDialog = false;
         this.email = '';
+        this.referralCode = '';
+        this.showReferralCode = false;
         this.emailTouched = false;
         this.emailError = '';
     }

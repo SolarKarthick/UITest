@@ -1,0 +1,27 @@
+.detail-page {
+  max-width: 72rem;
+}
+
+.panel {
+  border-radius: 1rem;
+  border: 1px solid rgba(99, 102, 241, 0.14);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(238, 242, 255, 0.55));
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.06);
+}
+
+:host ::ng-deep .detail-table {
+  .p-datatable-thead > tr > th {
+    background: rgba(238, 242, 255, 0.85);
+    color: #334155;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-color: #c7d2fe;
+  }
+
+  .p-datatable-tbody > tr > td {
+    border-color: #e0e7ff;
+    font-size: 0.875rem;
+  }
+}

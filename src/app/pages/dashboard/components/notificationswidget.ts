@@ -14,7 +14,7 @@ export class NotificationsWidget {
 
     quickLinks = [
         {
-            labelKey: 'Deposit',
+            labelKey: 'Pay-in',
             descKey: 'quickLinks.depositDesc',
             icon: 'pi-arrow-down',
             action: () => this.router.navigate(['/app/page/deposit']),
@@ -23,7 +23,7 @@ export class NotificationsWidget {
             rippleClass: 'quick-link-deposit',
         },
         {
-            labelKey: 'Withdraw',
+            labelKey: 'Pay-out',
             descKey: 'quickLinks.withdrawDesc',
             icon: 'pi-arrow-up',
             action: () => this.router.navigate(['/app/page/withdraw']),

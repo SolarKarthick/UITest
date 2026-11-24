@@ -1,21 +1,211 @@
+.login-page {
+  position: relative;
+  background:
+    radial-gradient(ellipse 85% 60% at 8% -5%, rgba(125, 211, 252, 0.55), transparent 55%),
+    radial-gradient(ellipse 75% 55% at 100% 10%, rgba(196, 181, 253, 0.48), transparent 52%),
+    radial-gradient(ellipse 60% 45% at 50% 100%, rgba(186, 230, 253, 0.45), transparent 50%),
+    linear-gradient(165deg, #eef2ff 0%, #dbeafe 42%, #ede9fe 100%);
+}
+
+.login-glass {
+  border: 1px solid rgba(147, 197, 253, 0.55);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 18px 40px rgba(37, 99, 235, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.login-header-wrap {
+  padding: 1rem 1rem 0;
+}
+
+.login-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 22rem;
+  margin: 0 auto;
+  min-height: 5.5rem;
+  padding: 0.95rem 0.85rem 0.95rem 1.1rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid rgba(125, 211, 252, 0.55);
+  box-shadow:
+    0 10px 24px rgba(37, 99, 235, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  background:
+    linear-gradient(90deg, rgba(14, 65, 120, 0.42) 0%, rgba(14, 65, 120, 0.18) 55%, rgba(14, 65, 120, 0.08) 100%),
+    url('../../../assets/demo/images/register/header-background.png') center / cover no-repeat;
+}
+
+.login-header-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 72%;
+}
+
+.login-header-title {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.12rem;
+  font-weight: 700;
+  line-height: 1.25;
+  white-space: nowrap;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.login-header-icon {
+  position: relative;
+  z-index: 1;
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: contain;
+  margin-right: -0.1rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35));
+}
+
+@media (min-width: 640px) {
+  .login-header-wrap {
+    padding: 1.15rem 1.15rem 0;
+  }
+
+  .login-header {
+    max-width: 24rem;
+    min-height: 6rem;
+    padding: 1.05rem 1rem 1.05rem 1.25rem;
+    border-radius: 1.1rem;
+  }
+
+  .login-header-title {
+    font-size: 1.22rem;
+  }
+
+  .login-header-icon {
+    width: 3.85rem;
+    height: 3.85rem;
+  }
+}
+
+.login-input,
+.login-password .p-password-input {
+  background: rgba(239, 246, 255, 0.95) !important;
+  color: #0f172a !important;
+  border: 1px solid rgba(147, 197, 253, 0.85) !important;
+  border-radius: 0.5rem;
+  box-shadow: none !important;
+}
+
+.login-input:enabled:focus,
+.login-password .p-password-input:enabled:focus {
+  border-color: #60a5fa !important;
+  box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.35) !important;
+}
+
+.login-input::placeholder,
+.login-password .p-password-input::placeholder {
+  color: #94a3b8;
+}
+
+.login-password .p-password-toggle-mask-icon,
+.login-password .p-icon,
+.login-password .p-password-toggle-icon {
+  color: #64748b !important;
+}
+
+.login-primary-btn {
+  background: linear-gradient(135deg, #38bdf8, #3b82f6 55%, #2563eb) !important;
+  border: none !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+.login-action-btn {
+  color: #2563eb !important;
+  border: 1px solid rgba(96, 165, 250, 0.75) !important;
+  background: rgba(239, 246, 255, 0.85) !important;
+}
+
+.login-action-btn:hover {
+  background: rgba(219, 234, 254, 0.95) !important;
+}
+
+.login-error-icon {
+  width: 6.5rem;
+  height: 6.5rem;
+}
+
+.login-error-icon .pi {
+  font-size: 3.75rem !important;
+  line-height: 1 !important;
+  color: #f43f5e !important;
+}
+
+@media (min-width: 640px) {
+  .login-error-icon {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+
+  .login-error-icon .pi {
+    font-size: 4.5rem !important;
+  }
+}
+
+:host ::ng-deep .login-dialog.p-dialog {
+  border: 1px solid rgba(147, 197, 253, 0.55);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.14);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+:host ::ng-deep .login-dialog .p-dialog-header {
+  padding: 1rem 1.25rem 0.75rem;
+  border-bottom: 1px solid rgba(147, 197, 253, 0.35);
+  background: linear-gradient(180deg, rgba(239, 246, 255, 0.95), rgba(255, 255, 255, 0.7));
+  color: #0f172a;
+}
+
+:host ::ng-deep .login-dialog .p-dialog-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+:host ::ng-deep .login-dialog .p-dialog-content {
+  padding: 1rem 1.25rem;
+  background: transparent;
+  color: #334155;
+}
+
+:host ::ng-deep .login-dialog .p-dialog-footer {
+  padding: 0.75rem 1.25rem 1.15rem;
+  border-top: 1px solid rgba(147, 197, 253, 0.3);
+  background: rgba(239, 246, 255, 0.55);
+}
+
 .loading-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.35);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    z-index: 9999;
-  }
-  
-  .custom-spinner {
-    width: 80px !important;
-    height: 80px !important;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.custom-spinner {
+  width: 80px !important;
+  height: 80px !important;
+}

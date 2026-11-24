@@ -1,0 +1,64 @@
+<section class="col-span-12">
+  <div class="mb-3 flex flex-wrap items-end justify-between gap-2">
+    <div>
+      <h2 class="m-0 text-base font-semibold text-slate-800 sm:text-lg">Earning Cap</h2>
+      <p class="mt-1 m-0 text-xs text-slate-500 sm:text-sm">
+        Pay-in × 2 cap, credited rewards and remaining potential
+      </p>
+    </div>
+    <a routerLink="/app/detail/cap" class="text-sm font-semibold text-indigo-600 no-underline hover:text-indigo-800">
+      View details →
+    </a>
+  </div>
+
+  <article class="limit-card rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50 via-sky-50 to-violet-50 p-4 shadow-sm sm:p-5">
+    <div class="mb-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+      <div class="rounded-xl bg-white/80 px-3 py-2.5 ring-1 ring-indigo-100">
+        <p class="m-0 text-[11px] font-medium uppercase tracking-[0.08em] text-indigo-600/80">Total Pay-in</p>
+        <p class="mt-1 m-0 text-lg font-bold text-slate-900">${{ totalDeposits | number: '1.0-0' }}</p>
+      </div>
+      <div class="rounded-xl bg-white/80 px-3 py-2.5 ring-1 ring-indigo-100">
+        <p class="m-0 text-[11px] font-medium uppercase tracking-[0.08em] text-indigo-600/80">Max Potential</p>
+        <p class="mt-1 m-0 text-lg font-bold text-slate-900">${{ maxPotential | number: '1.0-0' }}</p>
+      </div>
+      <div class="rounded-xl bg-white/80 px-3 py-2.5 ring-1 ring-indigo-100">
+        <p class="m-0 text-[11px] font-medium uppercase tracking-[0.08em] text-indigo-600/80">Rewards</p>
+        <p class="mt-1 m-0 text-lg font-bold text-indigo-700">
+          ${{ rewardsReceived | number: '1.0-0' }}
+          <span class="text-sm font-semibold text-indigo-500">({{ formatPercent(rewardsReceived) }})</span>
+        </p>
+      </div>
+      <div class="rounded-xl bg-white/80 px-3 py-2.5 ring-1 ring-indigo-100">
+        <p class="m-0 text-[11px] font-medium uppercase tracking-[0.08em] text-indigo-600/80">Pay-out</p>
+        <p class="mt-1 m-0 text-lg font-bold text-violet-700">
+          ${{ withdrawn | number: '1.0-0' }}
+          <span class="text-sm font-semibold text-violet-500">({{ formatPercent(withdrawn) }})</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="mb-2 flex flex-wrap items-center justify-between gap-2">
+      <p class="m-0 text-sm font-semibold text-slate-700">Progress vs max potential return</p>
+      <p class="m-0 text-xs text-slate-500 sm:text-sm">
+        Remaining
+        <span class="font-semibold text-sky-700">${{ remaining | number: '1.0-0' }} ({{ formatPercent(remaining) }})</span>
+      </p>
+    </div>
+
+    <p-metergroup [value]="progressMeterItems" [max]="100" styleClass="limit-meter" />
+
+    <ul class="mt-4 m-0 grid list-none grid-cols-1 gap-2 p-0 sm:grid-cols-3">
+      @for (item of meterItems; track item.label) {
+        <li class="rounded-xl bg-white/70 px-3 py-2 ring-1 ring-indigo-100/80">
+          <div class="min-w-0">
+            <p class="m-0 truncate text-xs font-medium text-slate-600">{{ item.label }}</p>
+            <p class="m-0 text-sm font-bold text-slate-900">
+              ${{ item.amount | number: '1.0-0' }}
+              <span class="font-semibold text-slate-500">· {{ item.value }}%</span>
+            </p>
+          </div>
+        </li>
+      }
+    </ul>
+  </article>
+</section>

@@ -6,14 +6,27 @@
 }
 
 .card {
-    background: var(--surface-card);
+    background: var(--glass-bg-strong);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border-soft);
+    box-shadow: var(--glass-shadow);
     padding: 2rem;
     margin-bottom: 2rem;
-    border-radius: var(--content-border-radius);
+    border-radius: calc(var(--content-border-radius) + 0.25rem);
 
     &:last-child {
         margin-bottom: 0;
     }
+}
+
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border-soft);
+    box-shadow: var(--glass-shadow);
+    border-radius: 1rem;
 }
 
 .p-toast {

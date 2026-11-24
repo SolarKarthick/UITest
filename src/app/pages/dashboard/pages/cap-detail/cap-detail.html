@@ -1,0 +1,81 @@
+<div class="detail-page">
+  <app-detail-page-header
+    title="Earning Cap"
+    subtitle="Your Pay-in sets Max Potential (×2). Track credited rewards and remaining room."
+  />
+
+  <div class="mb-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+    <div class="stat-card">
+      <p class="stat-label">Total Pay-in</p>
+      <p class="stat-value">${{ data.totalDeposits | number: '1.0-0' }}</p>
+    </div>
+    <div class="stat-card">
+      <p class="stat-label">Max Potential</p>
+      <p class="stat-value">${{ data.maxPotential | number: '1.0-0' }}</p>
+    </div>
+    <div class="stat-card">
+      <p class="stat-label">Credited</p>
+      <p class="stat-value text-indigo-700">
+        ${{ data.rewardsReceived | number: '1.0-0' }}
+        <span class="text-sm font-semibold text-indigo-500">({{ percentCredited }}%)</span>
+      </p>
+    </div>
+    <div class="stat-card">
+      <p class="stat-label">Pay-out</p>
+      <p class="stat-value text-violet-700">${{ data.totalWithdrawals | number: '1.0-0' }}</p>
+    </div>
+  </div>
+
+  <div class="mb-5 panel">
+    <div class="mb-2 flex items-center justify-between gap-2">
+      <p class="m-0 text-sm font-semibold text-slate-700">Remaining toward max</p>
+      <p class="m-0 text-sm font-bold text-sky-700">${{ data.remainingPotential | number: '1.0-0' }}</p>
+    </div>
+    <div class="h-2.5 overflow-hidden rounded-full bg-white/70">
+      <div class="h-full rounded-full bg-indigo-500" [style.width.%]="percentCredited"></div>
+    </div>
+    <p class="mt-2 m-0 text-xs text-slate-500">
+      Maximum Potential = Pay-in × 2. Investment returns, referral income, instant reward and welcome bonus all count toward this cap.
+    </p>
+  </div>
+
+  <div class="mb-5 panel">
+    <h2 class="panel-title">Earnings counted in cap</h2>
+    <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
+      @for (row of data.earningsBreakdown; track row.label) {
+        <div class="flex items-center justify-between rounded-xl bg-white/70 px-3 py-2.5 ring-1 ring-indigo-100">
+          <div>
+            <p class="m-0 text-sm font-semibold text-slate-800">{{ row.label }}</p>
+            <p class="mt-0.5 m-0 text-xs text-slate-500">{{ row.note }}</p>
+          </div>
+          <p class="m-0 text-sm font-bold text-indigo-700">${{ row.amount | number: '1.2-2' }}</p>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="panel overflow-hidden p-0">
+    <div class="border-b border-indigo-100 px-4 py-3">
+      <h2 class="panel-title m-0 px-0 py-0">Credit history toward cap</h2>
+      <p class="mt-1 m-0 text-xs text-slate-500">Running total of credited earnings and rewards</p>
+    </div>
+    <p-table [value]="data.capCredits" styleClass="detail-table" [tableStyle]="{ 'min-width': '100%' }">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Date</th>
+          <th>Source</th>
+          <th>Amount</th>
+          <th>Running Total</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-row>
+        <tr>
+          <td>{{ row.date }}</td>
+          <td class="font-medium text-slate-800">{{ row.source }}</td>
+          <td class="font-semibold text-indigo-700">+${{ row.amount | number: '1.2-2' }}</td>
+          <td class="font-semibold text-slate-800">${{ row.runningTotal | number: '1.2-2' }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

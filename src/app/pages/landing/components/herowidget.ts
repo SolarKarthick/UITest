@@ -1,13 +1,50 @@
 import { Component } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 
 @Component({
     selector: 'hero-widget',
     imports: [ButtonModule, RippleModule, RouterModule],
-    templateUrl:"./herowidget.html"
+    templateUrl: './herowidget.html',
+    styles: `
+        .hero-section {
+            background-color: transparent;
+            color: #fff;
+        }
+
+        .hero-gradient-text {
+            background: linear-gradient(90deg, #fff 0%, #f5d78e 45%, #d4a017 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-dashboard {
+            box-shadow:
+                0 24px 60px rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 rgba(255, 255, 255, 0.04);
+        }
+
+        .hero-preview-image {
+            width: 280px;
+            height: 280px;
+            max-width: 100%;
+        }
+
+        @media (min-width: 640px) {
+            .hero-preview-image {
+                width: 320px;
+                height: 320px;
+            }
+        }
+    `
 })
 export class HeroWidget {
-    constructor(private router: Router) {}
+    scrollToAssets(): void {
+        const element = document.getElementById('features') || document.getElementById('assets');
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
 }

@@ -12,8 +12,12 @@
     transition:
         transform var(--layout-section-transition-duration),
         left var(--layout-section-transition-duration);
-    background-color: var(--surface-overlay);
-    border-radius: var(--content-border-radius);
+    background: var(--glass-bg-strong);
+    backdrop-filter: var(--glass-blur-strong);
+    -webkit-backdrop-filter: var(--glass-blur-strong);
+    border: 1px solid var(--glass-border-soft);
+    box-shadow: var(--glass-shadow);
+    border-radius: calc(var(--content-border-radius) + 0.35rem);
     padding: 0.5rem 1.5rem;
 }
 
@@ -74,21 +78,53 @@
 
             .layout-menuitem-icon {
                 margin-right: 0.5rem;
+
+                &.menu-svg {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    svg {
+                        width: 1.1rem;
+                        height: 1.1rem;
+                    }
+                }
             }
 
             .layout-submenu-toggler {
                 font-size: 75%;
                 margin-left: auto;
                 transition: transform var(--element-transition-duration);
+
+                &.menu-svg {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    svg {
+                        width: 0.9rem;
+                        height: 0.9rem;
+                    }
+                }
             }
 
             &.active-route {
                 font-weight: 700;
-                color: var(--primary-color);
+                color: var(--accent-indigo, var(--primary-color));
+                background: linear-gradient(
+                    135deg,
+                    rgba(99, 102, 241, 0.14),
+                    rgba(56, 189, 248, 0.12)
+                );
+                box-shadow: inset 0 0 0 1px rgba(99, 102, 241, 0.16);
             }
 
             &:hover {
-                background-color: var(--surface-hover);
+                background: linear-gradient(
+                    135deg,
+                    rgba(99, 102, 241, 0.1),
+                    rgba(56, 189, 248, 0.08)
+                );
             }
 
             &:focus {

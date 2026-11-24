@@ -1,5 +1,17 @@
 :root[class*='app-dark'] {
-    --surface-ground: var(--p-surface-950);
+    --surface-ground: #0f172a;
     --code-background: var(--p-surface-800);
     --code-color: var(--p-surface-100);
+
+    --app-bg-base: #0b1220;
+    --app-bg-radiant:
+        radial-gradient(ellipse 80% 55% at 8% -10%, rgba(99, 102, 241, 0.28), transparent 55%),
+        radial-gradient(ellipse 70% 50% at 92% 8%, rgba(56, 189, 248, 0.18), transparent 52%),
+        radial-gradient(ellipse 60% 45% at 50% 100%, rgba(139, 92, 246, 0.2), transparent 55%),
+        linear-gradient(160deg, #0b1220 0%, #111827 45%, #0f172a 100%);
+    --glass-bg: rgba(15, 23, 42, 0.55);
+    --glass-bg-strong: rgba(15, 23, 42, 0.72);
+    --glass-border: rgba(148, 163, 184, 0.18);
+    --glass-border-soft: rgba(129, 140, 248, 0.22);
+    --glass-shadow: 0 8px 32px rgba(2, 6, 23, 0.45), 0 1px 0 rgba(255, 255, 255, 0.04) inset;
 }

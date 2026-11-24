@@ -33,6 +33,7 @@ export class CreatePassword {
   username = '';
   password = '';
   isLoading = false;
+  passwordFocused = false;
   errorDialog = false;
   errorMessage: any;
   errorSuggestion: any;
@@ -51,12 +52,24 @@ export class CreatePassword {
       this.displayEmail = email.trim();
     }
   }
-  isPasswordValid(): boolean {
+
+  get showPasswordRequirements(): boolean {
+    return this.passwordFocused || !!this.password;
+  }
+
+  get passwordRules() {
     const p = this.password ?? '';
-    if (p.length < 8 || p.length > 128) return false;
-    if (!/\d/.test(p)) return false;
-    if (!/[A-Z]/.test(p)) return false;
-    return true;
+    return [
+      { label: '10 to 15 characters', met: p.length >= 10 && p.length <= 15 },
+      { label: '1 or more numbers', met: /\d/.test(p) },
+      { label: '1 or more capital letters', met: /[A-Z]/.test(p) },
+      { label: '1 or more small letters', met: /[a-z]/.test(p) },
+      { label: '1 or more special characters', met: /[^A-Za-z0-9]/.test(p) }
+    ];
+  }
+
+  isPasswordValid(): boolean {
+    return this.passwordRules.every((rule) => rule.met);
   }
 
   isUsernameValid(): boolean {

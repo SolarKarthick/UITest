@@ -1,4 +1,4 @@
-import { Component,OnInit, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { RippleModule } from 'primeng/ripple';
 import { StyleClassModule } from 'primeng/styleclass';
@@ -15,24 +15,37 @@ import { CookieConsentDialog } from './components/cookie-consent-dialog/cookie-c
 @Component({
     selector: 'app-landing',
     standalone: true,
-    imports: [RouterModule, TopbarWidget, HeroWidget, FeaturesWidget, HighlightsWidget, PricingWidget, FooterWidget, RippleModule, StyleClassModule, ButtonModule, DividerModule , CookieConsentDialog],
-    templateUrl: './landing.html'
+    imports: [
+        RouterModule,
+        TopbarWidget,
+        HeroWidget,
+        FeaturesWidget,
+        HighlightsWidget,
+        PricingWidget,
+        FooterWidget,
+        RippleModule,
+        StyleClassModule,
+        ButtonModule,
+        DividerModule,
+        CookieConsentDialog
+    ],
+    templateUrl: './landing.html',
+    styleUrl: './landing.scss',
+    encapsulation: ViewEncapsulation.None
 })
-export class Landing implements OnInit, OnDestroy {
+export class Landing implements OnInit, AfterViewInit, OnDestroy {
     private clickHandler?: (event: MouseEvent) => void;
-   
+    private revealObserver?: IntersectionObserver;
+
     constructor() {}
 
     ngOnInit() {
-
-  
-        // Add global click handler for anchor links with hash fragments
         this.clickHandler = (event: MouseEvent) => {
             const target = event.target as HTMLElement;
             const anchor = target.closest('a[href^="#"]') as HTMLAnchorElement;
-            
+
             if (anchor && anchor.hash) {
-                const sectionId = anchor.hash.substring(1); // Remove the # symbol
+                const sectionId = anchor.hash.substring(1);
                 if (sectionId && document.getElementById(sectionId)) {
                     event.preventDefault();
                     const element = document.getElementById(sectionId);
@@ -45,10 +58,35 @@ export class Landing implements OnInit, OnDestroy {
         document.addEventListener('click', this.clickHandler);
     }
 
+    ngAfterViewInit() {
+        setTimeout(() => this.initRevealAnimations(), 0);
+    }
+
+    private initRevealAnimations(): void {
+        if (typeof window === 'undefined' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.querySelectorAll('.landing-reveal').forEach((el) => el.classList.add('is-visible'));
+            return;
+        }
+
+        this.revealObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        this.revealObserver?.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+        );
+
+        document.querySelectorAll('.landing-reveal').forEach((el) => this.revealObserver?.observe(el));
+    }
 
     ngOnDestroy() {
         if (this.clickHandler) {
             document.removeEventListener('click', this.clickHandler);
         }
+        this.revealObserver?.disconnect();
     }
 }

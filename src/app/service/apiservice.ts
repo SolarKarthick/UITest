@@ -11,13 +11,14 @@ export class Apiservice {
   constructor(private http: HttpClient) {
     const origin = window.location.origin;
 
-if (origin.includes('localhost')) {
-  this.baseUrl = 'http://localhost:3000/api';
-} else {
-  this.baseUrl = 'https://sep202609api.onrender.com/api';
-  
-  
-}
+  if (
+    origin.includes('localhost') ||
+    origin.includes('192.168.31.108')
+  ) {
+    this.baseUrl = 'http://192.168.31.108:3000/api';
+  } else {
+    this.baseUrl = 'https://sep202609api.onrender.com/api';
+  }
 }
 
   // GET request
