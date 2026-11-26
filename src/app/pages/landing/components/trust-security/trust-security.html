@@ -11,15 +11,25 @@
             </p>
         </div>
 
-        <div class="mt-8 grid grid-cols-1 gap-3 sm:mt-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4">
+        <div class="landing-reveal mt-8 overflow-hidden rounded-2xl border border-indigo-100 sm:mt-10">
+            <div class="landing-media landing-media-contain min-h-[11rem] rounded-none border-0 sm:min-h-[14rem]">
+                <img
+                    src="assets/demo/images/landing/generated/landing-security-trust.jpg"
+                    alt="Platform security and verification"
+                    loading="lazy"
+                />
+            </div>
+        </div>
+
+        <div class="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4">
             @for (item of trustItems; track item.title; let i = $index) {
                 <article
                     class="landing-reveal landing-lift landing-card p-5 sm:p-6"
                     [class.landing-reveal-delay-1]="i % 3 === 1"
                     [class.landing-reveal-delay-2]="i % 3 === 2"
                 >
-                    <div class="mb-4">
-                        <app-svg-icon [name]="item.svg" [chip]="true" size="lg" />
+                    <div class="landing-icon-chip mb-3">
+                        <i [class]="item.icon"></i>
                     </div>
                     <h3 class="text-base font-semibold text-slate-900 sm:text-lg">{{ item.title }}</h3>
                     <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ item.description }}</p>
@@ -28,44 +38,53 @@
         </div>
 
         <div class="landing-reveal landing-reveal-delay-1 mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5">
-            <div class="landing-card relative min-h-[240px] overflow-hidden p-5 sm:p-6 lg:p-7">
-                <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/8 via-transparent to-sky-500/10"></div>
-                <div class="relative z-10">
-                    <div class="mb-3">
-                        <app-svg-icon name="shield" [chip]="true" size="lg" />
-                    </div>
+            <div class="landing-card grid grid-cols-1 gap-4 overflow-hidden p-0 md:grid-cols-2">
+                <div class="landing-media landing-media-contain min-h-[12rem] rounded-none border-0">
+                    <img
+                        src="assets/demo/images/landing/generated/landing-identity-verify.jpg"
+                        alt="Identity verification process"
+                        loading="lazy"
+                    />
+                </div>
+                <div class="p-5 sm:p-6 lg:p-7">
                     <h3 class="text-xl font-bold text-slate-900 sm:text-2xl">Verification process</h3>
                     <p class="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
                         Identity checks, secure document handling, and account privacy controls help confirm who is participating. Business applicants may complete additional verification where applicable.
                     </p>
                     <ul class="mt-4 space-y-2 text-sm text-slate-600">
-                        <li class="flex items-center gap-2">
-                            <app-svg-icon name="check" [chip]="true" size="sm" />
+                        <li class="flex gap-2">
+                            <i class="pi pi-check-circle mt-0.5 text-indigo-600"></i>
                             <span>Identity verification for account holders</span>
                         </li>
-                        <li class="flex items-center gap-2">
-                            <app-svg-icon name="check" [chip]="true" size="sm" />
+                        <li class="flex gap-2">
+                            <i class="pi pi-check-circle mt-0.5 text-indigo-600"></i>
                             <span>Secure handling of submitted documents</span>
                         </li>
-                        <li class="flex items-center gap-2">
-                            <app-svg-icon name="check" [chip]="true" size="sm" />
+                        <li class="flex gap-2">
+                            <i class="pi pi-check-circle mt-0.5 text-indigo-600"></i>
                             <span>Access limited to authorized account sessions</span>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <div class="landing-risk-banner relative min-h-[240px] p-5 sm:p-6 lg:p-7">
-                <div class="mb-3">
-                    <app-svg-icon name="alert" [chip]="true" size="lg" />
+            <div class="landing-risk-banner grid grid-cols-1 gap-4 overflow-hidden p-0 md:grid-cols-2">
+                <div class="order-2 p-5 sm:order-1 sm:p-6 lg:p-7">
+                    <h3 class="text-xl font-bold text-amber-950 sm:text-2xl">Risk disclosure</h3>
+                    <p class="mt-3 text-sm leading-relaxed text-amber-950/85 sm:text-base">
+                        Peer-to-peer investing and borrowing involve risk. Investors may lose some or all capital. Borrowers remain responsible for obligations under accepted terms. Aurexion does not guarantee returns, repayment schedules, or capital protection.
+                    </p>
+                    <p class="mt-3 text-sm leading-relaxed text-amber-950/85">
+                        We do not claim regulatory certifications, insurance coverage, or third-party audits on this page unless independently verified and published elsewhere in the product.
+                    </p>
                 </div>
-                <h3 class="text-xl font-bold text-amber-950 sm:text-2xl">Risk disclosure</h3>
-                <p class="mt-3 text-sm leading-relaxed text-amber-950/85 sm:text-base">
-                    Peer-to-peer investing and borrowing involve risk. Investors may lose some or all capital. Borrowers remain responsible for obligations under accepted terms. Aurexion does not guarantee returns, repayment schedules, or capital protection.
-                </p>
-                <p class="mt-3 text-sm leading-relaxed text-amber-950/85">
-                    We do not claim regulatory certifications, insurance coverage, or third-party audits on this page unless independently verified and published elsewhere in the product.
-                </p>
+                <div class="landing-media landing-media-contain order-1 min-h-[12rem] rounded-none border-0 bg-white/70 sm:order-2">
+                    <img
+                        src="assets/demo/images/landing/generated/landing-risk-awareness.jpg"
+                        alt="Risk awareness and disclosures"
+                        loading="lazy"
+                    />
+                </div>
             </div>
         </div>
     </div>

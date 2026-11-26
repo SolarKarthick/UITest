@@ -4,34 +4,33 @@ import { RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { TabsModule } from 'primeng/tabs';
-import { SvgIcon } from '../../../../shared/components/svg-icon/svg-icon';
 
 @Component({
     selector: 'investment-solutions',
     standalone: true,
-    imports: [CommonModule, ButtonModule, RippleModule, RouterModule, TabsModule, SvgIcon],
+    imports: [CommonModule, ButtonModule, RippleModule, RouterModule, TabsModule],
     templateUrl: './investment-solutions.html',
     styleUrl: './investment-solutions.scss'
 })
 export class InvestmentSolutions {
     investorFeatures = [
         {
-            svg: 'chart-bar',
+            icon: 'pi pi-chart-bar',
             title: 'Portfolio overview',
             description: 'See balances and participation status in a dashboard aligned with the authenticated app.'
         },
         {
-            svg: 'search',
+            icon: 'pi pi-search',
             title: 'Opportunity review',
             description: 'Explore listings with transparent terms and disclosures before allocating capital.'
         },
         {
-            svg: 'history',
+            icon: 'pi pi-history',
             title: 'Transaction history',
             description: 'Follow deposits, allocations, and withdrawals with a clear activity trail.'
         },
         {
-            svg: 'alert',
+            icon: 'pi pi-exclamation-circle',
             title: 'Risk disclosures',
             description: 'Plain-language reminders that returns and repayment are never guaranteed.'
         }
@@ -54,19 +53,22 @@ export class InvestmentSolutions {
 
     verificationItems = [
         {
-            svg: 'id-card',
+            icon: 'pi pi-id-card',
             title: 'Identity verification',
-            description: 'Confirm who you are so the platform can maintain a trusted marketplace for all participants.'
+            description: 'Confirm who you are so the platform can maintain a trusted marketplace for all participants.',
+            image: 'assets/demo/images/landing/generated/landing-identity-verify.jpg'
         },
         {
-            svg: 'briefcase',
+            icon: 'pi pi-briefcase',
             title: 'Employment & income',
-            description: 'Where required, share supporting details that help assess capacity and application context.'
+            description: 'Where required, share supporting details that help assess capacity and application context.',
+            image: 'assets/demo/images/landing/generated/landing-borrowers.jpg'
         },
         {
-            svg: 'building',
+            icon: 'pi pi-building',
             title: 'Business verification',
-            description: 'Business applicants may complete additional checks so entity details stay accurate and transparent.'
+            description: 'Business applicants may complete additional checks so entity details stay accurate and transparent.',
+            image: 'assets/demo/images/landing/generated/landing-transparent-finance.jpg'
         }
     ];
 }

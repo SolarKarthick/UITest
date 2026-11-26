@@ -14,15 +14,22 @@
         <div class="mt-8 grid grid-cols-1 gap-3 sm:mt-10 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
             @for (item of highlights; track item.title; let i = $index) {
                 <article
-                    class="landing-reveal landing-lift landing-card flex flex-col p-5 sm:p-6"
+                    class="landing-reveal landing-lift landing-card flex flex-col overflow-hidden p-0"
                     [class.landing-reveal-delay-1]="i % 3 === 1"
                     [class.landing-reveal-delay-2]="i % 3 === 2"
                 >
-                    <div class="mb-4">
-                        <app-svg-icon [name]="item.svg" [chip]="true" size="lg" />
+                    <div class="landing-media landing-media-contain min-h-[9rem] rounded-none border-0 border-b border-indigo-100 sm:min-h-[10.5rem]">
+                        <img [src]="item.image" [alt]="item.title" loading="lazy" />
                     </div>
-                    <h3 class="text-base font-semibold text-slate-900 sm:text-lg">{{ item.title }}</h3>
-                    <p class="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{{ item.description }}</p>
+                    <div class="flex flex-1 flex-col p-5 sm:p-6">
+                        <div class="mb-3 flex items-center gap-2.5">
+                            <div class="landing-icon-chip">
+                                <i [class]="item.icon"></i>
+                            </div>
+                            <h3 class="m-0 text-base font-semibold text-slate-900 sm:text-lg">{{ item.title }}</h3>
+                        </div>
+                        <p class="mt-0 flex-1 text-sm leading-relaxed text-slate-600">{{ item.description }}</p>
+                    </div>
                 </article>
             }
         </div>

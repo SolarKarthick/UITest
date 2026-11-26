@@ -4,7 +4,6 @@ import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { Accordion, AccordionContent, AccordionHeader, AccordionPanel } from 'primeng/accordion';
 import { CommonModule } from '@angular/common';
-import { SvgIcon } from '../../../../shared/components/svg-icon/svg-icon';
 
 @Component({
     selector: 'trust-security',
@@ -17,8 +16,7 @@ import { SvgIcon } from '../../../../shared/components/svg-icon/svg-icon';
         Accordion,
         AccordionPanel,
         AccordionHeader,
-        AccordionContent,
-        SvgIcon
+        AccordionContent
     ],
     templateUrl: './trust-security.html',
     styleUrl: './trust-security.scss'
@@ -26,32 +24,32 @@ import { SvgIcon } from '../../../../shared/components/svg-icon/svg-icon';
 export class TrustSecurity {
     trustItems = [
         {
-            svg: 'id-card',
+            icon: 'pi pi-id-card',
             title: 'Identity verification',
             description: 'Participants complete identity checks so marketplace activity is connected to verified accounts.'
         },
         {
-            svg: 'key',
+            icon: 'pi pi-key',
             title: 'Secure account access',
             description: 'Strong sign-in flows and session controls help reduce unauthorized access to your account.'
         },
         {
-            svg: 'lock',
+            icon: 'pi pi-lock',
             title: 'Data protection',
             description: 'Connections use modern encryption so personal and financial data is protected in transit.'
         },
         {
-            svg: 'list',
+            icon: 'pi pi-list',
             title: 'Transaction transparency',
             description: 'Account activity and application updates are designed to remain visible and understandable.'
         },
         {
-            svg: 'eye-off',
+            icon: 'pi pi-eye-slash',
             title: 'Privacy',
             description: 'Portfolio and personal details stay limited to authorized access within your account.'
         },
         {
-            svg: 'alert',
+            icon: 'pi pi-exclamation-triangle',
             title: 'Risk communication',
             description: 'Disclosures explain that capital, returns, and repayment outcomes are not guaranteed.'
         }

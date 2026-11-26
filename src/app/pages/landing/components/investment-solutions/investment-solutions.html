@@ -20,8 +20,10 @@
                     [class.landing-reveal-delay-2]="i % 4 === 2"
                     [class.landing-reveal-delay-3]="i % 4 === 3"
                 >
-                    <div class="mb-4 flex justify-center sm:justify-start">
-                        <app-svg-icon [name]="item.svg" [chip]="true" size="lg" />
+                    <div class="mb-3 flex justify-center sm:justify-start">
+                        <div class="landing-icon-chip">
+                            <i [class]="item.icon"></i>
+                        </div>
                     </div>
                     <h3 class="text-base font-semibold text-slate-900">{{ item.title }}</h3>
                     <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ item.description }}</p>
@@ -35,19 +37,19 @@
                     <h3 class="text-xl font-bold text-slate-900 sm:text-2xl">What investors can expect</h3>
                     <ul class="mt-4 space-y-3 text-sm leading-relaxed text-slate-600 sm:text-base">
                         <li class="flex gap-3">
-                            <app-svg-icon name="check" [chip]="true" size="sm" />
+                            <i class="pi pi-check-circle mt-0.5 shrink-0 text-indigo-600"></i>
                             <span>Account overview with balances and recent activity in one place.</span>
                         </li>
                         <li class="flex gap-3">
-                            <app-svg-icon name="check" [chip]="true" size="sm" />
+                            <i class="pi pi-check-circle mt-0.5 shrink-0 text-indigo-600"></i>
                             <span>Opportunity details that highlight terms, status, and key disclosures.</span>
                         </li>
                         <li class="flex gap-3">
-                            <app-svg-icon name="check" [chip]="true" size="sm" />
+                            <i class="pi pi-check-circle mt-0.5 shrink-0 text-indigo-600"></i>
                             <span>Transaction history for deposits, allocations, and withdrawals where available.</span>
                         </li>
                         <li class="flex gap-3">
-                            <app-svg-icon name="check" [chip]="true" size="sm" />
+                            <i class="pi pi-check-circle mt-0.5 shrink-0 text-indigo-600"></i>
                             <span>Clear risk messaging — no fabricated returns or guaranteed income figures.</span>
                         </li>
                     </ul>
@@ -70,29 +72,15 @@
                         ></button>
                     </div>
                 </div>
-                <div class="landing-card overflow-hidden p-4 sm:p-5">
-                    <p class="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-indigo-600/80">Portfolio concepts</p>
-                    <div class="mt-4 space-y-3">
-                        <div class="rounded-xl bg-gradient-to-br from-indigo-500 via-indigo-600 to-blue-600 p-4 text-white">
-                            <p class="m-0 text-[0.65rem] uppercase tracking-wide text-indigo-50/90">Account overview</p>
-                            <p class="mt-1 m-0 text-lg font-semibold">Balances &amp; status</p>
-                            <p class="mt-1 m-0 text-xs text-sky-50/85">Illustrative layout — not live figures</p>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2.5">
-                            <div class="rounded-xl border border-indigo-100 bg-indigo-50/70 p-3">
-                                <app-svg-icon name="chart" [chip]="true" size="sm" />
-                                <p class="mt-2 m-0 text-[0.65rem] font-semibold uppercase text-indigo-600/80">Tracking</p>
-                                <p class="mt-1 m-0 text-sm font-semibold text-slate-900">Investment activity</p>
-                            </div>
-                            <div class="rounded-xl border border-sky-100 bg-sky-50/70 p-3">
-                                <app-svg-icon name="history" [chip]="true" size="sm" />
-                                <p class="mt-2 m-0 text-[0.65rem] font-semibold uppercase text-sky-700/80">History</p>
-                                <p class="mt-1 m-0 text-sm font-semibold text-slate-900">Transactions</p>
-                            </div>
-                        </div>
+                <div class="overflow-hidden rounded-2xl border border-indigo-100">
+                    <div class="landing-media landing-media-contain min-h-[14rem] rounded-none border-0 sm:min-h-[16rem]">
+                        <img
+                            src="assets/demo/images/landing/generated/landing-investors.jpg"
+                            alt="Investor portfolio and participation overview"
+                            loading="lazy"
+                        />
                     </div>
-                    <div class="landing-risk-banner mt-4 flex items-start gap-2 px-3 py-3">
-                        <app-svg-icon name="alert" [chip]="true" size="sm" />
+                    <div class="landing-risk-banner rounded-none border-x-0 border-b-0 px-3 py-3">
                         <p class="m-0 text-xs leading-relaxed text-amber-950/90">
                             <strong>Risk disclosure:</strong> Peer-to-peer investments can result in partial or total loss of capital. Past activity does not predict future results.
                         </p>
@@ -117,7 +105,17 @@
             </p>
         </div>
 
-        <div class="landing-reveal mt-8 sm:mt-10">
+        <div class="landing-reveal mt-8 overflow-hidden rounded-2xl border border-indigo-100 sm:mt-10">
+            <div class="landing-media landing-media-contain min-h-[12rem] rounded-none border-0 sm:min-h-[14rem]">
+                <img
+                    src="assets/demo/images/landing/generated/landing-borrowers.jpg"
+                    alt="Borrower application journey"
+                    loading="lazy"
+                />
+            </div>
+        </div>
+
+        <div class="landing-reveal mt-6 sm:mt-8">
             <p-tabs value="0">
                 <p-tablist>
                     <p-tab value="0">Application journey</p-tab>
@@ -139,12 +137,19 @@
                     <p-tabpanel value="1">
                         <div class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
                             @for (item of verificationItems; track item.title) {
-                                <article class="landing-card p-5">
-                                    <div class="mb-3">
-                                        <app-svg-icon [name]="item.svg" [chip]="true" size="lg" />
+                                <article class="landing-card overflow-hidden p-0">
+                                    <div class="landing-media landing-media-contain min-h-[8.5rem] rounded-none border-0 border-b border-indigo-100">
+                                        <img [src]="item.image" [alt]="item.title" loading="lazy" />
                                     </div>
-                                    <h3 class="text-base font-semibold text-slate-900">{{ item.title }}</h3>
-                                    <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ item.description }}</p>
+                                    <div class="p-5">
+                                        <div class="mb-2 flex items-center gap-2.5">
+                                            <div class="landing-icon-chip">
+                                                <i [class]="item.icon"></i>
+                                            </div>
+                                            <h3 class="m-0 text-base font-semibold text-slate-900">{{ item.title }}</h3>
+                                        </div>
+                                        <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ item.description }}</p>
+                                    </div>
                                 </article>
                             }
                         </div>
@@ -156,16 +161,16 @@
                                 After submission, you can follow review progress in your account. Approved terms are shown clearly before commitment. Declined or pending states include guidance on what may be needed next — without pressure or hidden fees language.
                             </p>
                             <ul class="mt-4 space-y-2 text-sm text-slate-600">
-                                <li class="flex items-start gap-2">
-                                    <app-svg-icon name="info" [chip]="true" size="sm" />
+                                <li class="flex gap-2">
+                                    <i class="pi pi-check-circle mt-0.5 text-indigo-600"></i>
                                     <span>Application status remains visible in your dashboard.</span>
                                 </li>
-                                <li class="flex items-start gap-2">
-                                    <app-svg-icon name="info" [chip]="true" size="sm" />
+                                <li class="flex gap-2">
+                                    <i class="pi pi-check-circle mt-0.5 text-indigo-600"></i>
                                     <span>Key terms are presented before you accept any offer.</span>
                                 </li>
-                                <li class="flex items-start gap-2">
-                                    <app-svg-icon name="info" [chip]="true" size="sm" />
+                                <li class="flex gap-2">
+                                    <i class="pi pi-check-circle mt-0.5 text-indigo-600"></i>
                                     <span>Support channels help with account and document questions.</span>
                                 </li>
                             </ul>

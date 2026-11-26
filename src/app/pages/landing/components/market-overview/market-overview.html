@@ -22,9 +22,6 @@
                     <span class="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 text-xs font-bold text-white">
                         {{ i + 1 }}
                     </span>
-                    <div class="mb-4">
-                        <app-svg-icon [name]="step.svg" [chip]="true" size="lg" />
-                    </div>
                     <h3 class="text-base font-semibold text-slate-900 sm:text-lg">{{ step.title }}</h3>
                     <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ step.description }}</p>
                 </article>
@@ -40,35 +37,47 @@
                 </p>
                 <div class="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
                     <div class="rounded-xl border border-indigo-100 bg-white/70 p-4">
-                        <div class="mb-2">
-                            <app-svg-icon name="chart-bar" [chip]="true" size="md" />
-                        </div>
                         <p class="m-0 text-sm font-semibold text-indigo-700">For investors</p>
                         <p class="mt-1 m-0 text-sm text-slate-600">Review opportunities, follow portfolio activity, and keep transaction history visible.</p>
                     </div>
                     <div class="rounded-xl border border-sky-100 bg-white/70 p-4">
-                        <div class="mb-2">
-                            <app-svg-icon name="loan" [chip]="true" size="md" />
-                        </div>
                         <p class="m-0 text-sm font-semibold text-sky-700">For borrowers</p>
                         <p class="mt-1 m-0 text-sm text-slate-600">Complete verification, submit applications, and track review status with clear next steps.</p>
                     </div>
                 </div>
             </article>
 
-            <article class="landing-card flex flex-col justify-between overflow-hidden p-5 sm:p-6">
-                <div>
-                    <p class="landing-eyebrow">Concept visual</p>
-                    <h3 class="mt-2 text-lg font-semibold text-slate-900">Marketplace flow</h3>
-                    <p class="mt-2 text-sm leading-relaxed text-slate-600">
-                        Capital, applications, and account controls in a single product experience.
-                    </p>
-                </div>
-                <div class="mt-5 flex min-h-[9rem] flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-indigo-200 bg-gradient-to-br from-indigo-50 via-sky-50 to-violet-50">
-                    <app-svg-icon name="sitemap" [chip]="true" size="lg" />
-                    <p class="m-0 text-xs text-slate-500">Illustration placeholder</p>
+            <article class="landing-card overflow-hidden p-0">
+                <div class="landing-media landing-media-contain min-h-[14rem] rounded-none border-0 sm:min-h-full">
+                    <img
+                        src="assets/demo/images/landing/generated/landing-dual-tools.jpg"
+                        alt="Investor and borrower tools on one platform"
+                        loading="lazy"
+                    />
                 </div>
             </article>
+        </div>
+
+        <div class="landing-reveal landing-reveal-delay-2 mt-6 overflow-hidden rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50 via-white to-sky-50 sm:mt-8">
+            <div class="grid grid-cols-1 items-center gap-3 p-3 sm:gap-4 sm:p-4 md:grid-cols-2 md:gap-5 md:p-5">
+                <div class="px-2 sm:px-3">
+                    <p class="landing-eyebrow">Welcome offer</p>
+                    <h3 class="mt-1.5 text-balance text-xl font-bold text-slate-900 sm:text-2xl">
+                        Welcome bonus for
+                        <span class="landing-accent-text"> eligible new users</span>
+                    </h3>
+                    <p class="mt-2 text-sm leading-relaxed text-slate-600 sm:text-base">
+                        New eligible accounts may receive a promotional welcome bonus. The final amount depends on eligibility checks and current promotional terms — not a guaranteed credit for every signup.
+                    </p>
+                </div>
+                <div class="landing-media landing-media-contain min-h-[14rem] border-0 bg-transparent sm:min-h-[16rem]">
+                    <img
+                        src="assets/demo/images/landing/features/welcome-bonus-new.png"
+                        alt="Welcome bonus celebration illustration"
+                        loading="lazy"
+                    />
+                </div>
+            </div>
         </div>
     </div>
 </section>

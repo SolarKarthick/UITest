@@ -3,12 +3,11 @@ import { ButtonModule } from 'primeng/button';
 import { DrawerModule } from 'primeng/drawer';
 import { CommonModule } from '@angular/common';
 import { CookieConsent } from '@/pages/service/cookie/cookie-consent';
-import { SvgIcon } from '../../../../shared/components/svg-icon/svg-icon';
 
 @Component({
     selector: 'cookie-consent',
     standalone: true,
-    imports: [ButtonModule, DrawerModule, CommonModule, SvgIcon],
+    imports: [ButtonModule, DrawerModule, CommonModule],
     templateUrl: './cookie-consent.html',
     styleUrl: './cookie-consent.scss'
 })
