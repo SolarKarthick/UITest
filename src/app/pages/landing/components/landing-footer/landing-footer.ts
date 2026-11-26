@@ -9,33 +9,13 @@ interface TradeInfo {
 }
 
 @Component({
-    selector: 'footer-widget',
+    selector: 'landing-footer',
+    standalone: true,
     imports: [RouterModule, DialogModule, ButtonModule],
-    templateUrl: './footerwidget.html',
-    styles: `
-        .landing-footer-link {
-            display: block;
-            width: 100%;
-            text-align: left;
-            padding: 0;
-            border: 0;
-            background: transparent;
-            color: #475569;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            cursor: pointer;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .landing-footer-link:hover,
-        .landing-footer-link:focus-visible {
-            color: #b45309;
-            outline: none;
-        }
-    `
+    templateUrl: './landing-footer.html',
+    styleUrl: './landing-footer.scss'
 })
-export class FooterWidget {
+export class LandingFooter {
     showDialog = false;
     selectedInfo: TradeInfo | null = null;
 

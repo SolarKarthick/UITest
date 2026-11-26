@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-    selector: 'features-widget',
+    selector: 'market-overview',
     standalone: true,
     imports: [CommonModule],
-    templateUrl: './featureswidget.html'
+    templateUrl: './market-overview.html',
+    styleUrl: './market-overview.scss'
 })
-export class FeaturesWidget {
+export class MarketOverview {
     features = [
         {
             title: 'Tight Spreads',

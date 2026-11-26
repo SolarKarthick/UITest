@@ -5,12 +5,13 @@ import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 
 @Component({
-    selector: 'highlights-widget',
+    selector: 'platform-highlights',
     standalone: true,
     imports: [CommonModule, RouterModule, ButtonModule, RippleModule],
-    templateUrl: './highlightswidget.html'
+    templateUrl: './platform-highlights.html',
+    styleUrl: './platform-highlights.scss'
 })
-export class HighlightsWidget {
+export class PlatformHighlights {
     highlights = [
         {
             title: 'Diversified Market Access',

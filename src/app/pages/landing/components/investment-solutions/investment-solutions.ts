@@ -5,11 +5,13 @@ import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 
 @Component({
-    selector: 'pricing-widget',
+    selector: 'investment-solutions',
+    standalone: true,
     imports: [CommonModule, ButtonModule, RippleModule, RouterModule],
-    templateUrl: './pricingwidget.html'
+    templateUrl: './investment-solutions.html',
+    styleUrl: './investment-solutions.scss'
 })
-export class PricingWidget {
+export class InvestmentSolutions {
     participationPoints = [
         {
             icon: 'pi pi-sitemap',
