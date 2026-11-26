@@ -1,0 +1,11 @@
+:host ::ng-deep {
+    .p-tabpanels {
+        background: transparent;
+        padding: 0;
+    }
+
+    .p-tablist-tab-list {
+        flex-wrap: wrap;
+        gap: 0.35rem;
+    }
+}

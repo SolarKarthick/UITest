@@ -1,0 +1,81 @@
+<div class="col-span-12 flex flex-col gap-4">
+  <section aria-label="Today highlights">
+    <div class="mb-2 flex items-center justify-between gap-2">
+      <h2 class="m-0 text-base font-semibold text-slate-800 sm:text-lg">Today</h2>
+    </div>
+    <article class="dash-card dash-card-highlight relative overflow-hidden rounded-2xl p-4 sm:p-5">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.18),transparent_45%)]"></div>
+      <div class="relative z-[1]">
+        <div class="min-w-0">
+          <p class="m-0 text-xs font-medium uppercase tracking-[0.12em] text-indigo-50/90 sm:text-[0.7rem]">
+            Today's Total Earnings
+          </p>
+          <p class="mt-2 m-0 truncate text-2xl font-bold text-white sm:text-3xl">
+            {{ formatSigned(todayTotalEarnings) }}
+          </p>
+          <p class="mt-1 m-0 text-xs text-sky-50/85">Investment return + referral income</p>
+        </div>
+
+        <div class="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3">
+          <div class="rounded-xl bg-white/12 px-3 py-2.5 ring-1 ring-white/20">
+            <p class="m-0 text-[11px] font-medium uppercase tracking-[0.08em] text-indigo-50/90">
+              Today's Investment Return
+            </p>
+            <p class="mt-1.5 m-0 text-lg font-bold text-white sm:text-xl">
+              {{ formatSigned(todayInvestmentReturn) }}
+            </p>
+          </div>
+          <div class="rounded-xl bg-white/12 px-3 py-2.5 ring-1 ring-white/20">
+            <p class="m-0 text-[11px] font-medium uppercase tracking-[0.08em] text-indigo-50/90">
+              Today's Referral Income
+            </p>
+            <p class="mt-1.5 m-0 text-lg font-bold text-white sm:text-xl">
+              {{ formatSigned(todayReferralIncome) }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section aria-label="Main summary">
+    <div class="mb-2 flex items-center justify-between gap-2">
+      <h2 class="m-0 text-base font-semibold text-slate-800 sm:text-lg">Main Summary</h2>
+    </div>
+    <article class="dash-card dash-card-summary relative overflow-hidden rounded-2xl p-4 sm:p-5">
+      <div class="min-w-0">
+        <p class="m-0 text-xs font-medium uppercase tracking-[0.1em] text-indigo-600/80">Main Balance</p>
+        <p class="mt-2 m-0 truncate text-2xl font-bold text-slate-900 sm:text-3xl">
+          ${{ mainBalance | number: '1.2-2' }}
+        </p>
+      </div>
+
+      <div class="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-3 sm:gap-3">
+        <div class="rounded-xl bg-white/70 px-3 py-2.5 ring-1 ring-indigo-100">
+          <p class="m-0 text-[11px] font-medium uppercase tracking-[0.08em] text-indigo-600/80">
+            Available Balance
+          </p>
+          <p class="mt-1.5 m-0 text-lg font-bold text-slate-900 sm:text-xl">
+            ${{ availableBalance | number: '1.2-2' }}
+          </p>
+        </div>
+        <div class="rounded-xl bg-white/70 px-3 py-2.5 ring-1 ring-indigo-100">
+          <p class="m-0 text-[11px] font-medium uppercase tracking-[0.08em] text-indigo-600/80">
+            Total Pay-in
+          </p>
+          <p class="mt-1.5 m-0 text-lg font-bold text-slate-900 sm:text-xl">
+            ${{ totalDeposits | number: '1.2-2' }}
+          </p>
+        </div>
+        <div class="rounded-xl bg-white/70 px-3 py-2.5 ring-1 ring-indigo-100">
+          <p class="m-0 text-[11px] font-medium uppercase tracking-[0.08em] text-indigo-600/80">
+            Total Pay-out
+          </p>
+          <p class="mt-1.5 m-0 text-lg font-bold text-slate-900 sm:text-xl">
+            ${{ totalWithdrawals | number: '1.2-2' }}
+          </p>
+        </div>
+      </div>
+    </article>
+  </section>
+</div>

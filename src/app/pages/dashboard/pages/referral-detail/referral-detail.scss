@@ -1,0 +1,68 @@
+.detail-page {
+  max-width: 72rem;
+}
+
+.stat-card,
+.panel {
+  border-radius: 1rem;
+  border: 1px solid rgba(99, 102, 241, 0.14);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(238, 242, 255, 0.55));
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.06);
+  padding: 0.9rem 1rem;
+}
+
+.stat-label {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(79, 70, 229, 0.75);
+}
+
+.stat-value {
+  margin: 0.35rem 0 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.panel-title {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.copy-btn {
+  border: 0;
+  border-radius: 0.75rem;
+  background: #4f46e5;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.65rem 1rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.copy-btn:hover {
+  background: #4338ca;
+}
+
+:host ::ng-deep .detail-table {
+  .p-datatable-thead > tr > th {
+    background: rgba(238, 242, 255, 0.85);
+    color: #334155;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-color: #c7d2fe;
+  }
+
+  .p-datatable-tbody > tr > td {
+    border-color: #e0e7ff;
+    font-size: 0.875rem;
+  }
+}

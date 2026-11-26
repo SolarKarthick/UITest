@@ -1,0 +1,259 @@
+app-landing {
+    display: block;
+}
+
+.landing-page {
+    --landing-ink: #0f172a;
+    --landing-muted: #64748b;
+    --landing-accent: #6366f1;
+    --landing-accent-deep: #4f46e5;
+    --landing-sky: #38bdf8;
+    --landing-violet: #8b5cf6;
+    --landing-surface: rgba(255, 255, 255, 0.72);
+    --landing-border: rgba(99, 102, 241, 0.14);
+    color-scheme: light;
+    min-height: 100dvh;
+    background:
+        radial-gradient(ellipse 80% 50% at 10% 0%, rgba(147, 197, 253, 0.45), transparent 55%),
+        radial-gradient(ellipse 70% 45% at 90% 15%, rgba(196, 181, 253, 0.38), transparent 50%),
+        linear-gradient(165deg, #eef4ff 0%, #eef2ff 42%, #e0f2fe 100%);
+    color: var(--landing-ink);
+}
+
+.landing-hero-shell {
+    color-scheme: dark;
+    background:
+        radial-gradient(ellipse 90% 55% at 50% -18%, rgba(99, 102, 241, 0.28), transparent 55%),
+        radial-gradient(ellipse 50% 40% at 100% 20%, rgba(56, 189, 248, 0.12), transparent 50%),
+        radial-gradient(ellipse 40% 35% at 0% 80%, rgba(139, 92, 246, 0.12), transparent 45%),
+        #0b1220;
+    color: #f1f5f9;
+}
+
+.landing-page .p-button {
+    min-height: 2.75rem;
+}
+
+.landing-page :where(a, button) {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.landing-section {
+    scroll-margin-top: 4.5rem;
+}
+
+.landing-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #4f46e5;
+}
+
+.landing-hero-shell .landing-eyebrow {
+    color: #a5b4fc;
+}
+
+.landing-card {
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.78),
+        rgba(238, 242, 255, 0.55) 50%,
+        rgba(224, 242, 254, 0.5)
+    );
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--landing-border);
+    border-radius: 1rem;
+    box-shadow: 0 10px 28px rgba(79, 70, 229, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.75);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .landing-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(99, 102, 241, 0.35);
+        box-shadow: 0 14px 28px rgba(79, 70, 229, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+}
+
+.landing-accent-text {
+    background: linear-gradient(120deg, #6366f1, #2563eb 50%, #0ea5e9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.landing-gold-text {
+    background: linear-gradient(120deg, #6366f1, #2563eb 50%, #0ea5e9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.landing-cta-primary {
+    background: linear-gradient(135deg, #38bdf8, #3b82f6 55%, #2563eb) !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    box-shadow: 0 10px 22px rgba(37, 99, 235, 0.28) !important;
+}
+
+.landing-cta-secondary {
+    background: transparent !important;
+    border: 1px solid rgba(99, 102, 241, 0.45) !important;
+    color: #4338ca !important;
+    font-weight: 600 !important;
+}
+
+.landing-hero-shell .landing-cta-secondary {
+    color: #e0e7ff !important;
+    border-color: rgba(165, 180, 252, 0.45) !important;
+}
+
+.landing-icon-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.85rem;
+    background: linear-gradient(145deg, rgba(99, 102, 241, 0.12), rgba(56, 189, 248, 0.12));
+    color: #4f46e5;
+    box-shadow: inset 0 0 0 1px rgba(99, 102, 241, 0.18);
+}
+
+.landing-panel-dark {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 1rem;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.landing-risk-banner {
+    border: 1px solid rgba(245, 158, 11, 0.35);
+    background: linear-gradient(135deg, rgba(255, 251, 235, 0.95), rgba(254, 243, 199, 0.65));
+    border-radius: 1rem;
+}
+
+/* Simple scroll / entrance animations */
+.landing-reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+        opacity 0.55s ease,
+        transform 0.55s ease;
+    will-change: opacity, transform;
+}
+
+.landing-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.landing-reveal-delay-1 {
+    transition-delay: 0.08s;
+}
+
+.landing-reveal-delay-2 {
+    transition-delay: 0.16s;
+}
+
+.landing-reveal-delay-3 {
+    transition-delay: 0.24s;
+}
+
+.landing-lift {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .landing-lift:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 28px rgba(79, 70, 229, 0.12);
+    }
+}
+
+@keyframes landingHeroIn {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.landing-hero-animate > * {
+    animation: landingHeroIn 0.6s ease both;
+}
+
+.landing-hero-animate > *:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.landing-hero-animate > *:nth-child(2) {
+    animation-delay: 0.12s;
+}
+
+.landing-hero-animate > *:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.landing-hero-animate > *:nth-child(4) {
+    animation-delay: 0.28s;
+}
+
+.landing-hero-animate > *:nth-child(5) {
+    animation-delay: 0.36s;
+}
+
+.landing-hero-animate > *:nth-child(6) {
+    animation-delay: 0.44s;
+}
+
+.landing-page {
+    .p-accordionpanel {
+        border: 1px solid rgba(99, 102, 241, 0.14);
+        border-radius: 0.9rem;
+        margin-bottom: 0.65rem;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.72);
+    }
+
+    .p-accordionheader {
+        padding: 0.95rem 1rem;
+        font-weight: 600;
+        color: #0f172a;
+    }
+
+    .p-accordioncontent-content {
+        padding: 0 1rem 1rem;
+        color: #475569;
+        line-height: 1.6;
+    }
+
+    .p-tablist {
+        gap: 0.35rem;
+    }
+
+    .p-tab {
+        border-radius: 0.75rem;
+        font-weight: 600;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .landing-card,
+    .landing-fade-up,
+    .landing-reveal,
+    .landing-lift,
+    .landing-hero-animate > *,
+    .ticker-track {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}

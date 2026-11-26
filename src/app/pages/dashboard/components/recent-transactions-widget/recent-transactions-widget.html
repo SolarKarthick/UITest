@@ -1,0 +1,68 @@
+<section class="col-span-12">
+  <div class="mb-3 flex flex-wrap items-end justify-between gap-2">
+    <div>
+      <h2 class="m-0 text-base font-semibold text-slate-800 sm:text-lg">Recent Transactions</h2>
+      <p class="mt-1 m-0 text-xs text-slate-500 sm:text-sm">Latest Pay-in, pay-out, returns and referral earnings</p>
+    </div>
+    <a routerLink="/app/detail/transactions" class="text-sm font-semibold text-indigo-600 no-underline hover:text-indigo-800">
+      View all →
+    </a>
+  </div>
+
+  <div class="overflow-hidden rounded-2xl border border-indigo-100 bg-gradient-to-b from-indigo-50/80 to-white shadow-sm">
+    <div class="hidden md:block">
+      <p-table [value]="transactions" styleClass="dash-table" [tableStyle]="{ 'min-width': '100%' }">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Transaction ID</th>
+            <th>Status</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-row>
+          <tr>
+            <td>
+              <div class="flex items-center gap-2">
+                <app-svg-icon [name]="typeSvg(row.type)" [chip]="true" size="sm" />
+                <span class="font-medium text-slate-800">{{ row.type }}</span>
+              </div>
+            </td>
+            <td [ngClass]="amountClass(row.type)" class="font-semibold">
+              {{ amountPrefix(row.type) }}${{ row.amount | number: '1.2-2' }}
+            </td>
+            <td class="text-slate-600">{{ row.date }}</td>
+            <td class="font-mono text-xs text-slate-500">{{ row.id }}</td>
+            <td>
+              <p-tag [value]="row.status" [severity]="statusSeverity(row.status)" />
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+
+    <div class="flex flex-col gap-3 p-3 md:hidden">
+      @for (row of transactions; track row.id) {
+        <article class="rounded-xl border border-indigo-100 bg-gradient-to-br from-indigo-50/90 to-sky-50/70 p-3.5">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex min-w-0 items-center gap-2.5">
+              <app-svg-icon [name]="typeSvg(row.type)" [chip]="true" size="sm" />
+              <div class="min-w-0">
+                <p class="m-0 truncate text-sm font-semibold text-slate-800">{{ row.type }}</p>
+                <p class="mt-0.5 m-0 font-mono text-[11px] text-slate-500">{{ row.id }}</p>
+              </div>
+            </div>
+            <p-tag [value]="row.status" [severity]="statusSeverity(row.status)" />
+          </div>
+          <div class="mt-3 flex items-center justify-between gap-2">
+            <span class="text-xs text-slate-500">{{ row.date }}</span>
+            <span class="text-sm font-bold" [ngClass]="amountClass(row.type)">
+              {{ amountPrefix(row.type) }}${{ row.amount | number: '1.2-2' }}
+            </span>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

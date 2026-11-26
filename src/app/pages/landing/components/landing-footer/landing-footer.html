@@ -1,0 +1,85 @@
+<footer class="border-t border-indigo-100 bg-white/70 px-4 pb-10 pt-12 sm:px-6 lg:px-12 xl:px-20">
+    <div class="mx-auto max-w-7xl">
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-12 lg:gap-6">
+            <div class="sm:col-span-2 lg:col-span-4">
+                <a routerLink="/" class="inline-flex items-center gap-2 no-underline">
+                    <img src="assets/demo/images/logo/TAF.png" alt="" class="logo-image" />
+                    <span class="text-xl font-semibold tracking-tight text-slate-900">Aurexion</span>
+                </a>
+                <p class="mt-3 max-w-sm text-sm leading-relaxed text-slate-600">
+                    A peer-to-peer investment platform connecting investors and borrowers with verification, transparent account tools, and clear risk communication.
+                </p>
+                <p class="mt-4 text-xs text-slate-500">© 2026 Aurexion. All rights reserved.</p>
+            </div>
+
+            <div class="lg:col-span-2">
+                <h4 class="mb-3 text-sm font-semibold uppercase tracking-wider text-indigo-700">Navigate</h4>
+                <div class="flex flex-col gap-2">
+                    <button type="button" class="landing-footer-link" (click)="scrollToSection($event, 'overview')">How it works</button>
+                    <button type="button" class="landing-footer-link" (click)="scrollToSection($event, 'highlights')">Highlights</button>
+                    <button type="button" class="landing-footer-link" (click)="scrollToSection($event, 'security')">Security</button>
+                    <button type="button" class="landing-footer-link" (click)="scrollToSection($event, 'faq')">FAQ</button>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2">
+                <h4 class="mb-3 text-sm font-semibold uppercase tracking-wider text-indigo-700">Investors</h4>
+                <div class="flex flex-col gap-2">
+                    <button type="button" class="landing-footer-link" (click)="scrollToSection($event, 'investors')">Investor overview</button>
+                    <a routerLink="/auth/register" class="landing-footer-link">Create investor account</a>
+                    <a routerLink="/auth/login" class="landing-footer-link">Sign in</a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2">
+                <h4 class="mb-3 text-sm font-semibold uppercase tracking-wider text-indigo-700">Borrowers</h4>
+                <div class="flex flex-col gap-2">
+                    <button type="button" class="landing-footer-link" (click)="scrollToSection($event, 'borrowers')">Borrower journey</button>
+                    <a routerLink="/auth/register" class="landing-footer-link">Start application</a>
+                    <a routerLink="/auth/login" class="landing-footer-link">Track status</a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2">
+                <h4 class="mb-3 text-sm font-semibold uppercase tracking-wider text-indigo-700">About &amp; legal</h4>
+                <div class="flex flex-col gap-2">
+                    <button type="button" class="landing-footer-link" (click)="openInfo('about')">About Aurexion</button>
+                    <a routerLink="/auth/login" class="landing-footer-link">Contact</a>
+                    <a routerLink="/auth/login" class="landing-footer-link">Privacy policy</a>
+                    <a routerLink="/auth/login" class="landing-footer-link">Terms of service</a>
+                    <button type="button" class="landing-footer-link" (click)="openInfo('risk')">Risk disclosures</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="landing-risk-banner mt-10 px-4 py-3">
+            <p class="text-center text-[0.7rem] leading-relaxed text-amber-950/85 sm:text-xs">
+                Risk warning: Peer-to-peer investing and borrowing involve risk of loss. Aurexion does not guarantee returns, repayment, or capital preservation. Only participate with funds you can afford to put at risk.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<p-dialog
+    [(visible)]="showDialog"
+    [modal]="true"
+    [draggable]="false"
+    [dismissableMask]="true"
+    [style]="{ width: '32rem' }"
+    [breakpoints]="{ '640px': '92vw' }"
+    [header]="selectedInfo?.title"
+>
+    <p class="text-base leading-relaxed text-slate-700">
+        {{ selectedInfo?.body }}
+    </p>
+
+    <div class="mt-5 rounded-lg border border-amber-200 bg-amber-50 p-3">
+        <p class="text-xs leading-relaxed text-amber-900/90">
+            <strong>Risk warning:</strong> Participation can result in the loss of invested capital. No returns are guaranteed.
+        </p>
+    </div>
+
+    <ng-template pTemplate="footer">
+        <p-button label="Got it" (onClick)="showDialog = false" />
+    </ng-template>
+</p-dialog>

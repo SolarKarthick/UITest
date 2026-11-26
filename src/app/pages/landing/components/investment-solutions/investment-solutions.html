@@ -1,0 +1,197 @@
+<!-- Investor experience -->
+<section id="investors" class="landing-section border-y border-indigo-100/80 px-4 py-12 sm:px-6 sm:py-16 lg:px-12 xl:px-20">
+    <div class="mx-auto max-w-7xl">
+        <div class="landing-reveal mx-auto max-w-2xl text-center">
+            <p class="landing-eyebrow">For investors</p>
+            <h2 class="mt-2 text-balance text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
+                Allocate capital with
+                <span class="landing-accent-text"> visibility and control</span>
+            </h2>
+            <p class="mt-3 text-pretty text-sm leading-relaxed text-slate-600 sm:text-base">
+                Review opportunities, follow portfolio activity, and keep transaction history close at hand. Outcomes depend on borrower performance and market conditions — not promised returns.
+            </p>
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 gap-3 sm:mt-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
+            @for (item of investorFeatures; track item.title; let i = $index) {
+                <article
+                    class="landing-reveal landing-lift landing-card p-5 text-center sm:p-6 sm:text-left"
+                    [class.landing-reveal-delay-1]="i % 4 === 1"
+                    [class.landing-reveal-delay-2]="i % 4 === 2"
+                    [class.landing-reveal-delay-3]="i % 4 === 3"
+                >
+                    <div class="mb-4 flex justify-center sm:justify-start">
+                        <app-svg-icon [name]="item.svg" [chip]="true" size="lg" />
+                    </div>
+                    <h3 class="text-base font-semibold text-slate-900">{{ item.title }}</h3>
+                    <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ item.description }}</p>
+                </article>
+            }
+        </div>
+
+        <div class="landing-reveal landing-reveal-delay-2 mt-8 rounded-2xl border border-indigo-100 bg-white/70 p-5 sm:mt-10 sm:p-6 lg:p-8">
+            <div class="grid grid-cols-1 items-start gap-6 lg:grid-cols-2 lg:gap-10">
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900 sm:text-2xl">What investors can expect</h3>
+                    <ul class="mt-4 space-y-3 text-sm leading-relaxed text-slate-600 sm:text-base">
+                        <li class="flex gap-3">
+                            <app-svg-icon name="check" [chip]="true" size="sm" />
+                            <span>Account overview with balances and recent activity in one place.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <app-svg-icon name="check" [chip]="true" size="sm" />
+                            <span>Opportunity details that highlight terms, status, and key disclosures.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <app-svg-icon name="check" [chip]="true" size="sm" />
+                            <span>Transaction history for deposits, allocations, and withdrawals where available.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <app-svg-icon name="check" [chip]="true" size="sm" />
+                            <span>Clear risk messaging — no fabricated returns or guaranteed income figures.</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+                        <button
+                            pButton
+                            pRipple
+                            type="button"
+                            label="Start investing"
+                            routerLink="/auth/register"
+                            class="landing-cta-primary w-full! justify-center! px-6! py-3! text-base! font-semibold! sm:w-auto!"
+                        ></button>
+                        <button
+                            pButton
+                            pRipple
+                            type="button"
+                            label="Sign in"
+                            routerLink="/auth/login"
+                            class="landing-cta-secondary w-full! justify-center! px-6! py-3! text-base! font-semibold! sm:w-auto!"
+                        ></button>
+                    </div>
+                </div>
+                <div class="landing-card overflow-hidden p-4 sm:p-5">
+                    <p class="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-indigo-600/80">Portfolio concepts</p>
+                    <div class="mt-4 space-y-3">
+                        <div class="rounded-xl bg-gradient-to-br from-indigo-500 via-indigo-600 to-blue-600 p-4 text-white">
+                            <p class="m-0 text-[0.65rem] uppercase tracking-wide text-indigo-50/90">Account overview</p>
+                            <p class="mt-1 m-0 text-lg font-semibold">Balances &amp; status</p>
+                            <p class="mt-1 m-0 text-xs text-sky-50/85">Illustrative layout — not live figures</p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2.5">
+                            <div class="rounded-xl border border-indigo-100 bg-indigo-50/70 p-3">
+                                <app-svg-icon name="chart" [chip]="true" size="sm" />
+                                <p class="mt-2 m-0 text-[0.65rem] font-semibold uppercase text-indigo-600/80">Tracking</p>
+                                <p class="mt-1 m-0 text-sm font-semibold text-slate-900">Investment activity</p>
+                            </div>
+                            <div class="rounded-xl border border-sky-100 bg-sky-50/70 p-3">
+                                <app-svg-icon name="history" [chip]="true" size="sm" />
+                                <p class="mt-2 m-0 text-[0.65rem] font-semibold uppercase text-sky-700/80">History</p>
+                                <p class="mt-1 m-0 text-sm font-semibold text-slate-900">Transactions</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="landing-risk-banner mt-4 flex items-start gap-2 px-3 py-3">
+                        <app-svg-icon name="alert" [chip]="true" size="sm" />
+                        <p class="m-0 text-xs leading-relaxed text-amber-950/90">
+                            <strong>Risk disclosure:</strong> Peer-to-peer investments can result in partial or total loss of capital. Past activity does not predict future results.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Borrower experience -->
+<section id="borrowers" class="landing-section bg-white/35 px-4 py-12 sm:px-6 sm:py-16 lg:px-12 xl:px-20">
+    <div class="mx-auto max-w-7xl">
+        <div class="landing-reveal mx-auto max-w-2xl text-center">
+            <p class="landing-eyebrow">For borrowers</p>
+            <h2 class="mt-2 text-balance text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
+                A guided path from
+                <span class="landing-accent-text"> application to decision</span>
+            </h2>
+            <p class="mt-3 text-pretty text-sm leading-relaxed text-slate-600 sm:text-base">
+                Apply with verified identity details, share relevant employment or income information where required, and track application status with transparent terms.
+            </p>
+        </div>
+
+        <div class="landing-reveal mt-8 sm:mt-10">
+            <p-tabs value="0">
+                <p-tablist>
+                    <p-tab value="0">Application journey</p-tab>
+                    <p-tab value="1">Verification</p-tab>
+                    <p-tab value="2">After you apply</p-tab>
+                </p-tablist>
+                <p-tabpanels>
+                    <p-tabpanel value="0">
+                        <div class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
+                            @for (step of borrowerSteps; track step.title; let i = $index) {
+                                <article class="landing-card p-5">
+                                    <span class="mb-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-sky-600 text-xs font-bold text-white">{{ i + 1 }}</span>
+                                    <h3 class="text-base font-semibold text-slate-900">{{ step.title }}</h3>
+                                    <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ step.description }}</p>
+                                </article>
+                            }
+                        </div>
+                    </p-tabpanel>
+                    <p-tabpanel value="1">
+                        <div class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                            @for (item of verificationItems; track item.title) {
+                                <article class="landing-card p-5">
+                                    <div class="mb-3">
+                                        <app-svg-icon [name]="item.svg" [chip]="true" size="lg" />
+                                    </div>
+                                    <h3 class="text-base font-semibold text-slate-900">{{ item.title }}</h3>
+                                    <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ item.description }}</p>
+                                </article>
+                            }
+                        </div>
+                    </p-tabpanel>
+                    <p-tabpanel value="2">
+                        <div class="landing-card mt-4 p-5 sm:p-6">
+                            <h3 class="text-lg font-semibold text-slate-900">Status tracking &amp; transparent terms</h3>
+                            <p class="mt-2 text-sm leading-relaxed text-slate-600 sm:text-base">
+                                After submission, you can follow review progress in your account. Approved terms are shown clearly before commitment. Declined or pending states include guidance on what may be needed next — without pressure or hidden fees language.
+                            </p>
+                            <ul class="mt-4 space-y-2 text-sm text-slate-600">
+                                <li class="flex items-start gap-2">
+                                    <app-svg-icon name="info" [chip]="true" size="sm" />
+                                    <span>Application status remains visible in your dashboard.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <app-svg-icon name="info" [chip]="true" size="sm" />
+                                    <span>Key terms are presented before you accept any offer.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <app-svg-icon name="info" [chip]="true" size="sm" />
+                                    <span>Support channels help with account and document questions.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </p-tabpanel>
+                </p-tabpanels>
+            </p-tabs>
+        </div>
+
+        <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row">
+            <button
+                pButton
+                pRipple
+                type="button"
+                label="Start borrower application"
+                routerLink="/auth/register"
+                class="landing-cta-primary w-full! justify-center! px-8! py-3! text-base! font-semibold! sm:w-auto!"
+            ></button>
+            <button
+                pButton
+                pRipple
+                type="button"
+                label="Sign in to continue"
+                routerLink="/auth/login"
+                class="landing-cta-secondary w-full! justify-center! px-8! py-3! text-base! font-semibold! sm:w-auto!"
+            ></button>
+        </div>
+    </div>
+</section>

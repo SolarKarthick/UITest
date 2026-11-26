@@ -1,0 +1,156 @@
+<div class="register-page flex min-h-screen w-full items-center justify-center overflow-hidden px-4 py-6">
+  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div class="register-orb register-orb-1"></div>
+    <div class="register-orb register-orb-2"></div>
+    <div class="register-orb register-orb-3"></div>
+  </div>
+
+  <div class="relative z-10 w-full max-w-md">
+    <div class="register-glass overflow-hidden rounded-3xl">
+      <div class="register-header-wrap">
+        <div class="register-header">
+          <div class="register-header-copy">
+            <p class="register-header-title">Invest here. Get returns.</p>
+          </div>
+          <img
+            src="assets/demo/images/register/arrows-rightside-icon.png"
+            alt=""
+            class="register-header-icon"
+            aria-hidden="true"
+          />
+        </div>
+      </div>
+
+      <div class="px-6 pb-8 pt-5 sm:px-8 sm:pb-10 sm:pt-6">
+      <div class="mb-7 text-left">
+        <h3 class="mb-2 text-xl font-semibold text-slate-800 sm:text-2xl">Let’s get you registered!</h3>
+        <p class="mb-4 text-sm text-slate-600 sm:text-base">
+          Already have an account?
+          <a routerLink="/auth/login" class="font-semibold text-sky-600 underline-offset-2 hover:underline">Login</a>
+        </p>
+        <p class="text-sm leading-relaxed text-slate-500 sm:text-base">
+          Enter your email to continue. We will use it for account verification and updates.
+        </p>
+      </div>
+
+      <p-fluid>
+        <div class="flex flex-col gap-5">
+          <div>
+            <p-floatlabel>
+              <input
+                pInputText
+                id="email"
+                name="email"
+                type="email"
+                [(ngModel)]="email"
+                (blur)="onEmailBlur()"
+                (ngModelChange)="validateEmail()"
+                autocomplete="off"
+                required
+                [disabled]="isLoading"
+                [class.ng-invalid]="emailTouched && emailError"
+                class="register-input w-full"
+              />
+              <label for="email">Email address</label>
+            </p-floatlabel>
+            <small class="mt-1 block text-sm text-rose-600" *ngIf="emailTouched && emailError">
+              {{ emailError }}
+            </small>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            @if (!showReferralCode) {
+              <p class="text-left text-base text-slate-600 sm:text-[1.05rem]">
+                Have a partner or referral code?
+                <button
+                  type="button"
+                  class="register-referral-link text-sky-600"
+                  (click)="showReferralCode = true"
+                  [disabled]="isLoading"
+                >
+                  Enter here
+                </button>
+              </p>
+            } @else {
+              <label for="referral-code" class="text-sm font-medium text-slate-600">
+                Partner or referral code
+              </label>
+              <input
+                pInputText
+                id="referral-code"
+                name="referralCode"
+                type="text"
+                [(ngModel)]="referralCode"
+                autocomplete="off"
+                [disabled]="isLoading"
+                placeholder="Enter code"
+                class="register-input w-full"
+              />
+            }
+          </div>
+
+          <div class="flex flex-col gap-3 pt-1">
+            <button
+              pButton
+              pRipple
+              (click)="onRegister()"
+              type="button"
+              [disabled]="isLoading"
+              label="Continue with Email"
+              styleClass="register-primary-btn w-full h-12"
+            ></button>
+          </div>
+
+          <p class="text-xs leading-relaxed text-slate-500 sm:text-sm">
+            By registering, you confirm that you are at least 18 years old and have read, understood, and accepted
+            Aurexion’s Terms of Service and Privacy Policy. You also agree that you may receive account updates,
+            platform news, and product notifications.
+          </p>
+        </div>
+      </p-fluid>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-dialog
+  [(visible)]="errorDialog"
+  [style]="{ width: '90vw', maxWidth: '450px' }"
+  [breakpoints]="{ '960px': '90vw', '640px': '95vw' }"
+  header="Registration Failed"
+  [modal]="true"
+  [closable]="true"
+  [draggable]="false"
+  [resizable]="false"
+  styleClass="register-dialog"
+>
+  <div class="flex flex-col gap-4 px-1 pt-1 text-center sm:gap-5 sm:px-3">
+    <div class="register-error-icon mx-auto flex items-center justify-center rounded-full bg-rose-50 ring-1 ring-rose-200">
+      <i class="pi pi-times-circle" aria-hidden="true"></i>
+    </div>
+    <div class="space-y-2">
+      <p class="px-2 text-sm font-medium text-slate-700 sm:text-base md:text-lg">
+        {{ errorMessage }}
+      </p>
+      <p class="px-2 text-sm font-medium text-slate-700 sm:text-base md:text-lg">
+        {{ errorSuggestion }}
+      </p>
+    </div>
+  </div>
+  <ng-template pTemplate="footer">
+    <div class="w-full px-2 sm:px-0">
+      <p-button
+        label="Try Again"
+        (onClick)="closeErrorDialog()"
+        styleClass="w-full text-sm sm:text-base"
+        severity="danger"
+        [style]="{ height: '44px' }"
+      ></p-button>
+    </div>
+  </ng-template>
+</p-dialog>
+
+<div *ngIf="isLoading" class="loading-overlay">
+  <p-progressSpinner strokeWidth="4" animationDuration=".8s" styleClass="custom-spinner">
+  </p-progressSpinner>
+</div>

@@ -1,0 +1,139 @@
+<div class="login-page flex min-h-screen w-full items-center justify-center overflow-hidden px-4 py-6">
+  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div class="absolute -left-16 top-10 h-64 w-64 rounded-full bg-sky-300/35 blur-3xl"></div>
+    <div class="absolute -right-12 bottom-16 h-72 w-72 rounded-full bg-blue-300/30 blur-3xl"></div>
+  </div>
+
+  <div class="relative z-10 w-full max-w-md">
+    <div class="login-glass overflow-hidden rounded-3xl">
+      <div class="login-header-wrap">
+        <div class="login-header">
+          <div class="login-header-copy">
+            <p class="login-header-title">Log in. Keep investing.</p>
+          </div>
+          <img
+            src="assets/demo/images/register/arrows-rightside-icon.png"
+            alt=""
+            class="login-header-icon"
+            aria-hidden="true"
+          />
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-4 px-6 pb-8 pt-5 sm:px-8 sm:pb-10 sm:pt-6">
+        <div class="text-left">
+          <h3 class="mb-2 text-xl font-semibold text-slate-800 sm:text-2xl">Log in to Aurexion</h3>
+          <p class="mb-3 text-sm text-slate-600 sm:text-base">
+            New here?
+            <a routerLink="/auth/register" class="font-semibold text-sky-600 underline-offset-2 hover:underline">Create an account</a>
+          </p>
+          <p class="text-sm leading-relaxed text-slate-500 sm:text-base">
+            Access your account with your email and password.
+          </p>
+        </div>
+
+        <div class="inline-flex flex-col gap-2">
+          <label for="login-email" class="font-semibold text-slate-700">Email address</label>
+          <input
+            pInputText
+            id="login-email"
+            type="email"
+            [(ngModel)]="email"
+            autocomplete="email"
+            class="login-input w-full p-3"
+            [disabled]="isLoading"
+          />
+        </div>
+
+        <div class="inline-flex flex-col gap-2">
+          <label for="login-password" class="font-semibold text-slate-700">Password</label>
+          <p-password
+            id="login-password"
+            [(ngModel)]="password"
+            [toggleMask]="true"
+            [feedback]="false"
+            [fluid]="true"
+            styleClass="w-full login-password"
+            inputStyleClass="w-full login-input p-3"
+            [disabled]="isLoading"
+            autocomplete="current-password"
+          />
+        </div>
+
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div class="flex items-center gap-2">
+            <p-checkbox [(ngModel)]="checked" inputId="rememberme" [binary]="true" [disabled]="isLoading" />
+            <label for="rememberme" class="cursor-pointer text-sm text-slate-600">Remember me</label>
+          </div>
+          <a
+            routerLink="/auth/forgot-password"
+            class="self-start text-sm font-medium text-sky-600 sm:self-auto"
+          >
+            Forgot password?
+          </a>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <p-button
+            label="Sign-In"
+            (onClick)="onLogin()"
+            [loading]="isLoading"
+            [disabled]="isLoading"
+            styleClass="login-primary-btn p-3 w-full"
+            class="w-full"
+          />
+          <p-button
+            label="Create account"
+            routerLink="/auth/register"
+            [text]="true"
+            [disabled]="isLoading"
+            styleClass="login-action-btn p-3 w-full"
+            class="w-full"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-dialog
+  [(visible)]="errorDialog"
+  [style]="{ width: '90vw', maxWidth: '450px' }"
+  [breakpoints]="{ '960px': '90vw', '640px': '95vw' }"
+  header="Sign in failed"
+  [modal]="true"
+  [closable]="true"
+  [draggable]="false"
+  [resizable]="false"
+  styleClass="login-dialog"
+>
+  <div class="flex flex-col gap-4 px-1 pt-1 text-center sm:gap-5 sm:px-3">
+    <div class="login-error-icon mx-auto flex items-center justify-center rounded-full bg-rose-50 ring-1 ring-rose-200">
+      <i class="pi pi-times-circle" aria-hidden="true"></i>
+    </div>
+    <div class="space-y-2">
+      <p class="px-2 text-sm font-medium text-slate-700 sm:text-base md:text-lg">
+        {{ errorMessage }}
+      </p>
+      <p class="px-2 text-sm font-medium text-slate-700 sm:text-base md:text-lg">
+        {{ errorSuggestion }}
+      </p>
+    </div>
+  </div>
+  <ng-template pTemplate="footer">
+    <div class="w-full px-2 sm:px-0">
+      <p-button
+        label="Try again"
+        (onClick)="closeErrorDialog()"
+        styleClass="w-full text-sm sm:text-base"
+        severity="danger"
+        [style]="{ height: '44px' }"
+      ></p-button>
+    </div>
+  </ng-template>
+</p-dialog>
+
+<div *ngIf="isLoading" class="loading-overlay">
+  <p-progressSpinner strokeWidth="4" animationDuration=".8s" styleClass="custom-spinner">
+  </p-progressSpinner>
+</div>

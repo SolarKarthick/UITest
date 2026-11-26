@@ -1,0 +1,48 @@
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+}
+
+.landing-nav-link {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 0.7rem 0.85rem;
+    border-radius: 0.65rem;
+    border: 0;
+    background: transparent;
+    color: rgb(203 213 225);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.landing-nav-link:hover,
+.landing-nav-link:focus-visible {
+    background: rgba(99, 102, 241, 0.16);
+    color: #c7d2fe;
+    outline: none;
+}
+
+:host ::ng-deep .landing-signin-btn.p-button,
+:host ::ng-deep .landing-signin-btn.p-button:enabled:hover,
+:host ::ng-deep .landing-signin-btn.p-button:enabled:active,
+:host ::ng-deep .landing-signin-btn.p-button:enabled:focus,
+:host ::ng-deep .landing-signin-btn.p-button:enabled:focus-visible {
+    background: transparent !important;
+    border-color: rgba(165, 180, 252, 0.4) !important;
+    color: #e0e7ff !important;
+    box-shadow: none !important;
+}
+
+@media (min-width: 1024px) {
+    .landing-nav-link {
+        width: auto;
+        padding: 0.45rem 0.7rem;
+        font-size: 0.875rem;
+    }
+}
