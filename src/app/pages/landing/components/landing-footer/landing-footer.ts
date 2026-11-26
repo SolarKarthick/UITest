@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 
-interface TradeInfo {
+interface InfoItem {
     title: string;
     body: string;
 }
@@ -17,28 +17,18 @@ interface TradeInfo {
 })
 export class LandingFooter {
     showDialog = false;
-    selectedInfo: TradeInfo | null = null;
+    selectedInfo: InfoItem | null = null;
 
-    private infoMap: Record<string, TradeInfo> = {
-        spot: {
-            title: 'Active market strategies',
-            body: 'Aurexion manages investment activity based on market fluctuations and opportunities across supported markets. Outcomes depend on conditions and trading activity. Profits and timelines are never guaranteed.'
+    private infoMap: Record<string, InfoItem> = {
+        about: {
+            title: 'About Aurexion',
+            body: 'Aurexion is a peer-to-peer investment platform designed to connect investors and borrowers with verification, transparent account tools, and clear risk communication. Product features continue to evolve based on user needs and compliance requirements.'
         },
-        ai: {
-            title: 'Crypto markets',
-            body: 'Participate in digital asset opportunities such as Bitcoin, Ethereum, and Solana. Crypto markets can be highly volatile. Only invest capital you can afford to risk.'
-        },
-        commodity: {
-            title: 'Commodity markets',
-            body: 'Access commodity categories such as gold, oil, and diamonds for diversification. Commodity prices respond to supply, demand, inflation, and geopolitics, and can decline as well as rise.'
-        },
-        events: {
-            title: 'Future markets',
-            body: 'The platform is designed to expand into additional financial markets over time, such as Forex. New markets will follow the same risk aware, non guaranteed participation approach.'
+        risk: {
+            title: 'Risk disclosures',
+            body: 'Peer-to-peer investing involves credit and market risk. Investors may lose some or all of their capital. Borrowers remain responsible for obligations under accepted terms. Aurexion does not guarantee returns, repayment schedules, or capital preservation.'
         }
     };
-
-    constructor(public router: Router) {}
 
     openInfo(key: string): void {
         this.selectedInfo = this.infoMap[key] ?? null;

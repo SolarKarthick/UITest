@@ -20,7 +20,26 @@ export const MENU_SVGS: any = {
   bell: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.2a5.5 5.5 0 0 1 11 0c0 6.3 2.5 6.8 2.5 6.8H4s2.5-.5 2.5-6.8"/><path d="M10.2 19a1.8 1.8 0 0 0 3.6 0"/></svg>`,
   chevron: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m7 10 5 5 5-5"/></svg>`,
   'chevron-right': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>`,
-  close: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 6.5 6.5 17.5"/><path d="m6.5 6.5 11 11"/></svg>`
+  close: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 6.5 6.5 17.5"/><path d="m6.5 6.5 11 11"/></svg>`,
+  lock: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><circle cx="12" cy="16" r="1" fill="currentColor" stroke="none"/></svg>`,
+  shield: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 19.5 6.5v5.2c0 4.4-3 7.6-7.5 9.3C7.5 19.3 4.5 16.1 4.5 11.7V6.5L12 3.5z"/><path d="m9.2 12.2 1.9 1.9 3.7-3.8"/></svg>`,
+  'id-card': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.25"/><circle cx="9" cy="11.5" r="2.25"/><path d="M5.5 16.5c.6-1.5 1.9-2.5 3.5-2.5s2.9 1 3.5 2.5"/><path d="M14.5 10h4M14.5 13.5h4"/></svg>`,
+  eye: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12s3.5-6.5 9.5-6.5S21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.75"/></svg>`,
+  'eye-off': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m4 4 16 16"/><path d="M10.6 10.7a2.75 2.75 0 0 0 3.7 3.7"/><path d="M7 7.5C4.3 9.1 2.5 12 2.5 12s3.5 6.5 9.5 6.5c1.5 0 2.9-.4 4.1-1"/><path d="M14.1 6.8A9.4 9.4 0 0 1 12 5.5C6 5.5 2.5 12 2.5 12"/><path d="M17.5 9.7c1.6 1.3 2.9 2.9 3.5 3.8"/></svg>`,
+  search: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>`,
+  alert: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.8 21 19.5H3L12 3.8z"/><path d="M12 10v4.5"/><circle cx="12" cy="17" r="0.9" fill="currentColor" stroke="none"/></svg>`,
+  file: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3.5h7l5 5V20a1.5 1.5 0 0 1-1.5 1.5H7A1.5 1.5 0 0 1 5.5 20V5A1.5 1.5 0 0 1 7 3.5z"/><path d="M14 3.5V9h5.5"/><path d="M9 13h6M9 16.5h4"/></svg>`,
+  building: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 20.5h15"/><path d="M6.5 20.5V6.5l5.5-3 5.5 3v14"/><path d="M10 9h.01M14 9h.01M10 12.5h.01M14 12.5h.01M10 16h.01M14 16h.01"/></svg>`,
+  list: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7h11M9 12h11M9 17h11"/><circle cx="5" cy="7" r="1" fill="currentColor" stroke="none"/><circle cx="5" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="5" cy="17" r="1" fill="currentColor" stroke="none"/></svg>`,
+  mobile: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.25"/><path d="M11 18h2"/></svg>`,
+  menu: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7h15M4.5 12h15M4.5 17h15"/></svg>`,
+  check: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m5.5 12.5 4.2 4.2 8.8-9"/></svg>`,
+  sync: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12a7.5 7.5 0 0 1-12.7 5.4"/><path d="M4.5 12A7.5 7.5 0 0 1 17.2 6.6"/><path d="M19.5 5.5v4.2h-4.2M4.5 18.5v-4.2h4.2"/></svg>`,
+  info: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5"/><circle cx="12" cy="8" r="0.9" fill="currentColor" stroke="none"/></svg>`,
+  image: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="2.25"/><circle cx="9" cy="10.5" r="1.75"/><path d="m7.5 17.5 3.2-3.5 2.3 2.1 3-3.6 3.5 5"/></svg>`,
+  key: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="14" r="4.5"/><path d="M11.5 11.5 20 3.5M16.5 4.5l3 3M15 8l2.2 2.2"/></svg>`,
+  history: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3"/><path d="M4.5 5v4.2H8.7"/><path d="M12 8v4.5l3 2"/></svg>`,
+  sitemap: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.5" width="6" height="5" rx="1.25"/><rect x="2.5" y="16.5" width="6" height="5" rx="1.25"/><rect x="15.5" y="16.5" width="6" height="5" rx="1.25"/><path d="M12 7.5v4.5M5.5 12.5h13M5.5 12.5v4M18.5 12.5v4"/></svg>`
 };
 
 export const MENU_ICON_COLORS: any = {
@@ -44,7 +63,26 @@ export const MENU_ICON_COLORS: any = {
   bell: { color: '#ea580c', bg: '#fff7ed' },
   chevron: { color: '#64748b', bg: 'transparent' },
   'chevron-right': { color: '#94a3b8', bg: 'transparent' },
-  close: { color: '#64748b', bg: 'transparent' }
+  close: { color: '#64748b', bg: 'transparent' },
+  lock: { color: '#4f46e5', bg: '#eef2ff' },
+  shield: { color: '#2563eb', bg: '#eff6ff' },
+  'id-card': { color: '#7c3aed', bg: '#f5f3ff' },
+  eye: { color: '#0284c7', bg: '#f0f9ff' },
+  'eye-off': { color: '#64748b', bg: '#f8fafc' },
+  search: { color: '#4f46e5', bg: '#eef2ff' },
+  alert: { color: '#d97706', bg: '#fffbeb' },
+  file: { color: '#0d9488', bg: '#f0fdfa' },
+  building: { color: '#4338ca', bg: '#eef2ff' },
+  list: { color: '#6366f1', bg: '#eef2ff' },
+  mobile: { color: '#db2777', bg: '#fdf2f8' },
+  menu: { color: '#e0e7ff', bg: 'transparent' },
+  check: { color: '#059669', bg: '#ecfdf5' },
+  sync: { color: '#0284c7', bg: '#f0f9ff' },
+  info: { color: '#2563eb', bg: '#eff6ff' },
+  image: { color: '#94a3b8', bg: '#f8fafc' },
+  key: { color: '#d97706', bg: '#fffbeb' },
+  history: { color: '#7c3aed', bg: '#f5f3ff' },
+  sitemap: { color: '#4f46e5', bg: '#eef2ff' }
 };
 
 export function menuSvg(name: any): any {

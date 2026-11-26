@@ -3,7 +3,6 @@ import { RouterModule } from '@angular/router';
 import { RippleModule } from 'primeng/ripple';
 import { StyleClassModule } from 'primeng/styleclass';
 import { ButtonModule } from 'primeng/button';
-import { DividerModule } from 'primeng/divider';
 import { LandingTopbar } from './components/landing-topbar/landing-topbar';
 import { HeroSection } from './components/hero-section/hero-section';
 import { MarketOverview } from './components/market-overview/market-overview';
@@ -28,7 +27,6 @@ import { CookieConsentComponent } from './components/cookie-consent/cookie-conse
         RippleModule,
         StyleClassModule,
         ButtonModule,
-        DividerModule,
         CookieConsentComponent
     ],
     templateUrl: './landing.html',

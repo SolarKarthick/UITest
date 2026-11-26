@@ -3,48 +3,70 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
+import { TabsModule } from 'primeng/tabs';
+import { SvgIcon } from '../../../../shared/components/svg-icon/svg-icon';
 
 @Component({
     selector: 'investment-solutions',
     standalone: true,
-    imports: [CommonModule, ButtonModule, RippleModule, RouterModule],
+    imports: [CommonModule, ButtonModule, RippleModule, RouterModule, TabsModule, SvgIcon],
     templateUrl: './investment-solutions.html',
     styleUrl: './investment-solutions.scss'
 })
 export class InvestmentSolutions {
-    participationPoints = [
+    investorFeatures = [
         {
-            icon: 'pi pi-sitemap',
-            title: 'Choose your participation',
-            description: 'Open an account and allocate capital toward multi market investment activity managed on the platform.'
+            svg: 'chart-bar',
+            title: 'Portfolio overview',
+            description: 'See balances and participation status in a dashboard aligned with the authenticated app.'
         },
         {
-            icon: 'pi pi-sync',
-            title: 'Market driven activity',
-            description: 'Strategies respond to fluctuations and opportunities across commodities, crypto, and additional markets over time.'
+            svg: 'search',
+            title: 'Opportunity review',
+            description: 'Explore listings with transparent terms and disclosures before allocating capital.'
         },
         {
-            icon: 'pi pi-eye',
-            title: 'Track with transparency',
-            description: 'Follow account activity clearly. Outcomes depend on market conditions and trading activity, not fixed packages.'
+            svg: 'history',
+            title: 'Transaction history',
+            description: 'Follow deposits, allocations, and withdrawals with a clear activity trail.'
+        },
+        {
+            svg: 'alert',
+            title: 'Risk disclosures',
+            description: 'Plain-language reminders that returns and repayment are never guaranteed.'
         }
     ];
 
-    referralCards = [
+    borrowerSteps = [
         {
-            title: 'Share your referral',
-            description: 'Invite others using your personal referral ID or referral link from your account dashboard.',
-            image: 'assets/demo/images/landing/pricing/share-your-referral.jpg'
+            title: 'Create & verify',
+            description: 'Open an account and complete identity verification so your application is tied to a verified profile.'
         },
         {
-            title: 'Referral Instant Reward',
-            description: 'Eligible referrals can unlock an instant reward based on the referred user’s qualifying investment, subject to program rules.',
-            image: 'assets/demo/images/landing/pricing/referral-instant-reward.jpg'
+            title: 'Share required details',
+            description: 'Provide employment, income, or business information where applicable to support a fair review.'
         },
         {
-            title: 'Transparent tracking',
-            description: 'Follow referral activity in your account so invites and rewards remain easy to understand.',
-            image: 'assets/demo/images/landing/pricing/transparent-tracking.jpg'
+            title: 'Submit & track',
+            description: 'Send your application, monitor status updates, and review any offered terms before accepting.'
+        }
+    ];
+
+    verificationItems = [
+        {
+            svg: 'id-card',
+            title: 'Identity verification',
+            description: 'Confirm who you are so the platform can maintain a trusted marketplace for all participants.'
+        },
+        {
+            svg: 'briefcase',
+            title: 'Employment & income',
+            description: 'Where required, share supporting details that help assess capacity and application context.'
+        },
+        {
+            svg: 'building',
+            title: 'Business verification',
+            description: 'Business applicants may complete additional checks so entity details stay accurate and transparent.'
         }
     ];
 }

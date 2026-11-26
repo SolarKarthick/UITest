@@ -23,8 +23,8 @@
 
 .landing-nav-link:hover,
 .landing-nav-link:focus-visible {
-    background: rgba(212, 160, 23, 0.1);
-    color: #f5d78e;
+    background: rgba(99, 102, 241, 0.16);
+    color: #c7d2fe;
     outline: none;
 }
 
@@ -34,8 +34,8 @@
 :host ::ng-deep .landing-signin-btn.p-button:enabled:focus,
 :host ::ng-deep .landing-signin-btn.p-button:enabled:focus-visible {
     background: transparent !important;
-    border-color: rgba(245, 158, 11, 0.3) !important;
-    color: rgb(254 243 199) !important;
+    border-color: rgba(165, 180, 252, 0.4) !important;
+    color: #e0e7ff !important;
     box-shadow: none !important;
 }
 

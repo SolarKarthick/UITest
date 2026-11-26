@@ -1,38 +1,35 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SvgIcon } from '../../../../shared/components/svg-icon/svg-icon';
 
 @Component({
     selector: 'market-overview',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, SvgIcon],
     templateUrl: './market-overview.html',
     styleUrl: './market-overview.scss'
 })
 export class MarketOverview {
-    features = [
+    steps = [
         {
-            title: 'Tight Spreads',
-            description:
-                'Competitive spreads designed for clearer entry and exit pricing across multi market investment activity.',
-            image: 'assets/demo/images/landing/features/tight-spreads.png'
+            svg: 'user-plus',
+            title: 'Create your account',
+            description: 'Register securely and choose whether you plan to invest, apply for funding, or explore both roles over time.'
         },
         {
-            title: 'Real Market Prices',
-            description:
-                'Strategies and participation reflect live market conditions, so pricing stays aligned with actual market movement.',
-            image: 'assets/demo/images/landing/features/real-market-prices.png'
+            svg: 'verified',
+            title: 'Complete verification',
+            description: 'Identity and, where applicable, business or income checks help keep participation trustworthy for everyone.'
         },
         {
-            title: 'Low Cost Investing',
-            description:
-                'Straightforward pricing with transparent fee information no hidden charges that obscure how your capital is used.',
-            image: 'assets/demo/images/landing/features/low-cost.png'
+            svg: 'sync',
+            title: 'Connect through the platform',
+            description: 'Borrowers submit applications with transparent terms. Investors review opportunities and manage allocated capital.'
         },
         {
-            title: 'Fast Withdrawals',
-            description:
-                'Request withdrawals easily through a clear, fee aware process so you can move funds with simple account controls.',
-            image: 'assets/demo/images/landing/features/super-fast-withdrawals.png'
+            svg: 'eye',
+            title: 'Track with clarity',
+            description: 'Follow application status, account balances, and transaction history from a single dashboard experience.'
         }
     ];
 }

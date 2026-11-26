@@ -1,1 +1,7 @@
-/* Trust & security styles */
+:host ::ng-deep {
+    .p-accordion {
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
+    }
+}
